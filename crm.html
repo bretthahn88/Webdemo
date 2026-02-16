@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NovaMind CRM — Calendar &amp; Client Management</title>
+  <title>NovaMind CRM — Cannabis Retail Client Management</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background: #f1f5f9; color: #1e293b; height: 100vh; display: flex; overflow: hidden; }
+    body { font-family: 'Inter', sans-serif; background: #f1f5f4; color: #1e293b; height: 100vh; display: flex; overflow: hidden; }
 
     /* ── Sidebar ── */
     .sidebar {
       width: 260px;
-      background: #0f172a;
+      background: #14201a;
       color: #94a3b8;
       display: flex;
       flex-direction: column;
@@ -20,9 +20,9 @@
     }
     .sidebar-brand {
       padding: 24px 20px;
-      border-bottom: 1px solid #1e293b;
+      border-bottom: 1px solid #1e3328;
     }
-    .sidebar-brand h1 { font-size: 1.25rem; color: #2563eb; font-weight: 700; }
+    .sidebar-brand h1 { font-size: 1.25rem; color: #22c55e; font-weight: 700; }
     .sidebar-brand h1 span { color: #fff; }
     .sidebar-brand p { font-size: .75rem; margin-top: 4px; color: #64748b; }
     .sidebar-nav { flex: 1; padding: 16px 12px; }
@@ -33,8 +33,8 @@
       font-family: inherit; font-size: .9rem; font-weight: 500;
       border-radius: 8px; cursor: pointer; transition: .15s; text-align: left;
     }
-    .sidebar-nav button:hover { background: #1e293b; color: #e2e8f0; }
-    .sidebar-nav button.active { background: #2563eb; color: #fff; }
+    .sidebar-nav button:hover { background: #1e3328; color: #e2e8f0; }
+    .sidebar-nav button.active { background: #16a34a; color: #fff; }
     .sidebar-nav button .icon { font-size: 1.1rem; width: 24px; text-align: center; }
     .sidebar-nav button .badge {
       margin-left: auto;
@@ -47,7 +47,7 @@
     }
     .sidebar-footer {
       padding: 16px 20px;
-      border-top: 1px solid #1e293b;
+      border-top: 1px solid #1e3328;
       font-size: .8rem;
     }
 
@@ -61,7 +61,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid #e2e8f0;
+      border-bottom: 1px solid #d4e8d9;
       flex-shrink: 0;
     }
     .topbar h2 { font-size: 1.2rem; font-weight: 700; }
@@ -76,16 +76,16 @@
       font-family: inherit;
       transition: .15s;
     }
-    .btn-primary { background: #2563eb; color: #fff; }
-    .btn-primary:hover { background: #1d4ed8; }
-    .btn-secondary { background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
-    .btn-secondary:hover { background: #e2e8f0; }
+    .btn-primary { background: #16a34a; color: #fff; }
+    .btn-primary:hover { background: #15803d; }
+    .btn-secondary { background: #f1f5f4; color: #475569; border: 1px solid #d4e8d9; }
+    .btn-secondary:hover { background: #e2efe6; }
     .btn-danger { background: #fee2e2; color: #dc2626; }
     .btn-danger:hover { background: #fecaca; }
     .btn-sm { padding: 6px 14px; font-size: .8rem; }
     .search-box {
       padding: 8px 14px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #d4e8d9;
       border-radius: 8px;
       font-size: .85rem;
       font-family: inherit;
@@ -93,7 +93,7 @@
       width: 220px;
       transition: border-color .2s;
     }
-    .search-box:focus { border-color: #2563eb; }
+    .search-box:focus { border-color: #16a34a; }
 
     /* ── Content ── */
     .content { flex: 1; overflow-y: auto; padding: 24px 28px; }
@@ -107,13 +107,13 @@
     .cal-nav { display: flex; gap: 8px; }
     .cal-nav button {
       width: 36px; height: 36px;
-      border-radius: 8px; border: 1px solid #e2e8f0;
+      border-radius: 8px; border: 1px solid #d4e8d9;
       background: #fff; cursor: pointer; font-size: 1rem;
       display: flex; align-items: center; justify-content: center;
       transition: .15s;
     }
-    .cal-nav button:hover { background: #f1f5f9; }
-    .cal-view-toggle { display: flex; gap: 4px; background: #f1f5f9; border-radius: 8px; padding: 3px; }
+    .cal-nav button:hover { background: #f1f5f4; }
+    .cal-view-toggle { display: flex; gap: 4px; background: #f1f5f4; border-radius: 8px; padding: 3px; }
     .cal-view-toggle button {
       padding: 6px 16px; border: none; background: none;
       font-family: inherit; font-size: .8rem; font-weight: 600;
@@ -126,7 +126,7 @@
       grid-template-columns: repeat(7, 1fr);
       background: #fff;
       border-radius: 12px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #d4e8d9;
       overflow: hidden;
     }
     .cal-day-header {
@@ -136,19 +136,19 @@
       font-weight: 600;
       color: #64748b;
       text-transform: uppercase;
-      background: #f8fafc;
-      border-bottom: 1px solid #e2e8f0;
+      background: #f0faf2;
+      border-bottom: 1px solid #d4e8d9;
     }
     .cal-cell {
       min-height: 100px;
       padding: 6px 8px;
-      border-right: 1px solid #f1f5f9;
-      border-bottom: 1px solid #f1f5f9;
+      border-right: 1px solid #eef5f0;
+      border-bottom: 1px solid #eef5f0;
       cursor: pointer;
       transition: background .1s;
       position: relative;
     }
-    .cal-cell:hover { background: #f8fafc; }
+    .cal-cell:hover { background: #f0faf2; }
     .cal-cell:nth-child(7n) { border-right: none; }
     .cal-cell .day-num {
       font-size: .8rem;
@@ -158,9 +158,9 @@
       display: flex; align-items: center; justify-content: center;
       border-radius: 50%;
     }
-    .cal-cell.today .day-num { background: #2563eb; color: #fff; }
+    .cal-cell.today .day-num { background: #16a34a; color: #fff; }
     .cal-cell.other-month .day-num { color: #cbd5e1; }
-    .cal-cell.other-month { background: #fafbfc; }
+    .cal-cell.other-month { background: #fafcfb; }
     .cal-event {
       margin-top: 3px;
       padding: 2px 6px;
@@ -172,10 +172,13 @@
       text-overflow: ellipsis;
       cursor: pointer;
     }
-    .cal-event.meeting { background: #dbeafe; color: #1d4ed8; }
-    .cal-event.call { background: #dcfce7; color: #16a34a; }
+    .cal-event.meeting { background: #dcfce7; color: #15803d; }
+    .cal-event.call { background: #dbeafe; color: #1d4ed8; }
     .cal-event.deadline { background: #fee2e2; color: #dc2626; }
     .cal-event.followup { background: #fef3c7; color: #d97706; }
+    .cal-event.delivery { background: #e0e7ff; color: #4338ca; }
+    .cal-event.inspection { background: #fce7f3; color: #be185d; }
+    .cal-event.license { background: #f3e8ff; color: #7c3aed; }
 
     /* ── Week view ── */
     .week-grid {
@@ -183,7 +186,7 @@
       grid-template-columns: 60px repeat(7, 1fr);
       background: #fff;
       border-radius: 12px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #d4e8d9;
       overflow: hidden;
     }
     .week-header-cell {
@@ -192,13 +195,13 @@
       font-size: .75rem;
       font-weight: 600;
       color: #64748b;
-      background: #f8fafc;
-      border-bottom: 1px solid #e2e8f0;
-      border-right: 1px solid #f1f5f9;
+      background: #f0faf2;
+      border-bottom: 1px solid #d4e8d9;
+      border-right: 1px solid #eef5f0;
     }
     .week-header-cell .day-num-w { font-size: 1.1rem; color: #1e293b; margin-top: 2px; }
     .week-header-cell.today-col .day-num-w {
-      background: #2563eb; color: #fff;
+      background: #16a34a; color: #fff;
       width: 30px; height: 30px; border-radius: 50%;
       display: inline-flex; align-items: center; justify-content: center;
     }
@@ -207,7 +210,7 @@
       font-size: .7rem;
       color: #94a3b8;
       text-align: right;
-      border-right: 1px solid #e2e8f0;
+      border-right: 1px solid #d4e8d9;
       height: 48px;
       display: flex;
       align-items: flex-start;
@@ -215,13 +218,13 @@
     }
     .week-cell {
       height: 48px;
-      border-right: 1px solid #f1f5f9;
-      border-bottom: 1px solid #f1f5f9;
+      border-right: 1px solid #eef5f0;
+      border-bottom: 1px solid #eef5f0;
       padding: 1px 3px;
       cursor: pointer;
       position: relative;
     }
-    .week-cell:hover { background: #f8fafc; }
+    .week-cell:hover { background: #f0faf2; }
     .week-event {
       padding: 2px 5px;
       border-radius: 4px;
@@ -231,17 +234,20 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    .week-event.meeting { background: #dbeafe; color: #1d4ed8; }
-    .week-event.call { background: #dcfce7; color: #16a34a; }
+    .week-event.meeting { background: #dcfce7; color: #15803d; }
+    .week-event.call { background: #dbeafe; color: #1d4ed8; }
     .week-event.deadline { background: #fee2e2; color: #dc2626; }
     .week-event.followup { background: #fef3c7; color: #d97706; }
+    .week-event.delivery { background: #e0e7ff; color: #4338ca; }
+    .week-event.inspection { background: #fce7f3; color: #be185d; }
+    .week-event.license { background: #f3e8ff; color: #7c3aed; }
 
     /* ── Client list ── */
     .client-table {
       width: 100%;
       background: #fff;
       border-radius: 12px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #d4e8d9;
       border-collapse: separate;
       border-spacing: 0;
       overflow: hidden;
@@ -253,17 +259,17 @@
       font-weight: 600;
       color: #64748b;
       text-transform: uppercase;
-      background: #f8fafc;
-      border-bottom: 1px solid #e2e8f0;
+      background: #f0faf2;
+      border-bottom: 1px solid #d4e8d9;
     }
     .client-table td {
       padding: 14px 16px;
       font-size: .9rem;
-      border-bottom: 1px solid #f1f5f9;
+      border-bottom: 1px solid #eef5f0;
       vertical-align: middle;
     }
     .client-table tr:last-child td { border-bottom: none; }
-    .client-table tr:hover td { background: #f8fafc; }
+    .client-table tr:hover td { background: #f0faf2; }
     .client-avatar {
       width: 36px; height: 36px;
       border-radius: 50%;
@@ -281,6 +287,15 @@
     .status-lead { background: #dbeafe; color: #2563eb; }
     .status-prospect { background: #fef3c7; color: #d97706; }
     .status-inactive { background: #f1f5f9; color: #64748b; }
+    .license-badge {
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-size: .7rem;
+      font-weight: 600;
+    }
+    .license-valid { background: #dcfce7; color: #16a34a; }
+    .license-expiring { background: #fef3c7; color: #d97706; }
+    .license-expired { background: #fee2e2; color: #dc2626; }
 
     /* ── Dashboard ── */
     .dash-cards {
@@ -291,7 +306,7 @@
     }
     .dash-card {
       background: #fff;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #d4e8d9;
       border-radius: 12px;
       padding: 20px;
     }
@@ -302,13 +317,13 @@
     .dash-card .down { color: #dc2626; }
     .dash-sections { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     .dash-section {
-      background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px;
+      background: #fff; border: 1px solid #d4e8d9; border-radius: 12px; padding: 20px;
     }
     .dash-section h4 { font-size: .95rem; font-weight: 700; margin-bottom: 14px; }
     .upcoming-item {
       display: flex; align-items: center; gap: 12px;
       padding: 10px 0;
-      border-bottom: 1px solid #f1f5f9;
+      border-bottom: 1px solid #eef5f0;
     }
     .upcoming-item:last-child { border-bottom: none; }
     .upcoming-dot {
@@ -320,12 +335,12 @@
     .pipeline-item {
       display: flex; align-items: center; justify-content: space-between;
       padding: 10px 0;
-      border-bottom: 1px solid #f1f5f9;
+      border-bottom: 1px solid #eef5f0;
     }
     .pipeline-item:last-child { border-bottom: none; }
     .pipeline-item .name { font-size: .85rem; font-weight: 600; }
     .pipeline-item .stage { font-size: .75rem; color: #64748b; }
-    .pipeline-item .amount { font-weight: 700; color: #2563eb; font-size: .9rem; }
+    .pipeline-item .amount { font-weight: 700; color: #16a34a; font-size: .9rem; }
 
     /* ── Modal ── */
     .modal-overlay {
@@ -340,7 +355,7 @@
     .modal {
       background: #fff;
       border-radius: 16px;
-      width: 480px;
+      width: 520px;
       max-width: 95vw;
       max-height: 90vh;
       overflow-y: auto;
@@ -361,7 +376,7 @@
     .form-group textarea {
       width: 100%;
       padding: 10px 14px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #d4e8d9;
       border-radius: 8px;
       font-family: inherit;
       font-size: .9rem;
@@ -370,7 +385,7 @@
     }
     .form-group input:focus,
     .form-group select:focus,
-    .form-group textarea:focus { border-color: #2563eb; }
+    .form-group textarea:focus { border-color: #16a34a; }
     .form-group textarea { resize: vertical; min-height: 80px; }
     .form-row { display: flex; gap: 12px; }
     .form-row .form-group { flex: 1; }
@@ -393,12 +408,12 @@
   <aside class="sidebar">
     <div class="sidebar-brand">
       <h1>Nova<span>Mind</span></h1>
-      <p>CRM &amp; Calendar</p>
+      <p>Cannabis Retail CRM</p>
     </div>
     <nav class="sidebar-nav">
       <button class="active" data-view="dashboard"><span class="icon">&#x1F4CA;</span> Dashboard</button>
       <button data-view="calendar"><span class="icon">&#x1F4C5;</span> Calendar</button>
-      <button data-view="clients"><span class="icon">&#x1F465;</span> Clients</button>
+      <button data-view="clients"><span class="icon">&#x1F33F;</span> Dispensaries</button>
     </nav>
     <div class="sidebar-footer">&copy; 2026 NovaMind AI</div>
   </aside>
@@ -441,6 +456,9 @@
             <select id="eventType">
               <option value="meeting">Meeting</option>
               <option value="call">Call</option>
+              <option value="delivery">Delivery</option>
+              <option value="inspection">Compliance Inspection</option>
+              <option value="license">License Renewal</option>
               <option value="deadline">Deadline</option>
               <option value="followup">Follow-up</option>
             </select>
@@ -468,16 +486,16 @@
   <!-- Client Modal -->
   <div class="modal-overlay" id="clientModal">
     <div class="modal">
-      <h3 id="clientModalTitle">New Client</h3>
+      <h3 id="clientModalTitle">New Dispensary</h3>
       <form id="clientForm">
         <input type="hidden" id="clientId">
         <div class="form-row">
           <div class="form-group">
-            <label>Name</label>
+            <label>Contact Name</label>
             <input type="text" id="clientName" required>
           </div>
           <div class="form-group">
-            <label>Company</label>
+            <label>Dispensary / Company</label>
             <input type="text" id="clientCompany">
           </div>
         </div>
@@ -502,8 +520,35 @@
             </select>
           </div>
           <div class="form-group">
-            <label>Deal Value</label>
+            <label>Monthly Revenue</label>
             <input type="number" id="clientValue" placeholder="$0">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>License #</label>
+            <input type="text" id="clientLicense" placeholder="e.g. C10-0000123-LIC">
+          </div>
+          <div class="form-group">
+            <label>License Expiry</label>
+            <input type="date" id="clientLicenseExpiry">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Store Type</label>
+            <select id="clientStoreType">
+              <option value="dispensary">Dispensary</option>
+              <option value="delivery">Delivery Only</option>
+              <option value="cultivation">Cultivation</option>
+              <option value="manufacturing">Manufacturing</option>
+              <option value="distribution">Distribution</option>
+              <option value="microbusiness">Microbusiness</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label># of Locations</label>
+            <input type="number" id="clientLocations" placeholder="1" min="1">
           </div>
         </div>
         <div class="form-group">
@@ -521,7 +566,7 @@
 
 <script>
 // ── State (persisted in localStorage) ──
-const STORAGE_KEY = 'novamind_crm';
+const STORAGE_KEY = 'novamind_cannabis_crm';
 let state = loadState();
 
 function defaultState() {
@@ -531,24 +576,36 @@ function defaultState() {
     dt.setDate(dt.getDate() + offset);
     return dt.toISOString().slice(0, 10);
   };
+  const futureDate = (months) => {
+    const dt = new Date(today);
+    dt.setMonth(dt.getMonth() + months);
+    return dt.toISOString().slice(0, 10);
+  };
   return {
     clients: [
-      { id: c_id(), name: 'Sarah Robinson', company: 'Meridian Logistics', email: 'sarah@meridian.com', phone: '(555) 100-2000', status: 'active', value: 85000, notes: 'Interested in process automation for warehouse ops.' },
-      { id: c_id(), name: 'James Kim', company: 'BrightPath Health', email: 'jkim@brightpath.com', phone: '(555) 200-3000', status: 'active', value: 120000, notes: 'AI strategy engagement — 3 year roadmap.' },
-      { id: c_id(), name: 'Maria Lopez', company: 'FinEdge Capital', email: 'mlopez@finedge.com', phone: '(555) 300-4000', status: 'active', value: 95000, notes: 'Custom forecasting model in production.' },
-      { id: c_id(), name: 'David Chen', company: 'Atlas Retail', email: 'dchen@atlas.com', phone: '(555) 400-5000', status: 'lead', value: 60000, notes: 'Exploratory — wants demand forecasting.' },
-      { id: c_id(), name: 'Emily Parker', company: 'Greenline Energy', email: 'eparker@greenline.com', phone: '(555) 500-6000', status: 'prospect', value: 45000, notes: 'Referred by James Kim.' },
-      { id: c_id(), name: 'Robert Tanaka', company: 'Apex Manufacturing', email: 'rtanaka@apex.com', phone: '(555) 600-7000', status: 'inactive', value: 0, notes: 'Previous engagement completed Q3 2025.' },
+      { id: c_id(), name: 'Marcus Green', company: 'Emerald Leaf Dispensary', email: 'marcus@emeraldleaf.com', phone: '(415) 555-0142', status: 'active', value: 285000, license: 'C10-0001847-LIC', licenseExpiry: futureDate(8), storeType: 'dispensary', locations: 3, notes: 'Flagship in SF Mission District. Top-performing retail client. Interested in AI-powered inventory forecasting.' },
+      { id: c_id(), name: 'Lisa Chang', company: 'Pacific Roots Cannabis', email: 'lisa@pacificroots.com', phone: '(510) 555-0298', status: 'active', value: 190000, license: 'C10-0002391-LIC', licenseExpiry: futureDate(4), storeType: 'dispensary', locations: 2, notes: 'Oakland & Berkeley locations. Wants POS analytics dashboard and customer loyalty program optimization.' },
+      { id: c_id(), name: 'Jordan Rivera', company: 'High Sierra Collective', email: 'jordan@highsierra.co', phone: '(916) 555-0467', status: 'active', value: 145000, license: 'C10-0003105-LIC', licenseExpiry: futureDate(2), storeType: 'microbusiness', locations: 1, notes: 'Seed-to-sale microbusiness in Sacramento. Needs compliance tracking automation and Metrc integration.' },
+      { id: c_id(), name: 'Aisha Patel', company: 'GreenWave Delivery', email: 'aisha@greenwave.delivery', phone: '(213) 555-0583', status: 'active', value: 110000, license: 'C9-0000782-LIC', licenseExpiry: futureDate(6), storeType: 'delivery', locations: 1, notes: 'Delivery-only license in LA. Route optimization and demand prediction project in progress.' },
+      { id: c_id(), name: 'Derek Morrison', company: 'SunGrown Farms', email: 'derek@sungrownfarms.com', phone: '(707) 555-0331', status: 'active', value: 220000, license: 'CCL18-0000456-LIC', licenseExpiry: futureDate(10), storeType: 'cultivation', locations: 1, notes: 'Humboldt outdoor cultivation. AI yield prediction and pest detection system deployed.' },
+      { id: c_id(), name: 'Natalie Woods', company: 'Bloom Room SF', email: 'natalie@bloomroomsf.com', phone: '(415) 555-0714', status: 'prospect', value: 95000, license: 'C10-0004210-LIC', licenseExpiry: futureDate(5), storeType: 'dispensary', locations: 1, notes: 'Single location on Haight St. Interested in customer analytics and menu optimization.' },
+      { id: c_id(), name: 'Carlos Mendez', company: 'Verde Labs', email: 'carlos@verdelabs.com', phone: '(310) 555-0892', status: 'lead', value: 175000, license: 'CDPH-T00001234', licenseExpiry: futureDate(3), storeType: 'manufacturing', locations: 1, notes: 'Edibles & concentrate manufacturer in LA. Wants batch tracking AI and quality control automation.' },
+      { id: c_id(), name: 'Tanya Brooks', company: 'Canna Coast Distribution', email: 'tanya@cannacoast.com', phone: '(831) 555-0156', status: 'lead', value: 130000, license: 'C11-0000987-LIC', licenseExpiry: futureDate(7), storeType: 'distribution', locations: 2, notes: 'Central coast distributor. Supply chain optimization and logistics AI.' },
+      { id: c_id(), name: 'Ray Nakamura', company: 'Zen Garden Cannabis', email: 'ray@zengarden.com', phone: '(619) 555-0445', status: 'inactive', value: 0, license: 'C10-0002876-LIC', licenseExpiry: d(-30), storeType: 'dispensary', locations: 1, notes: 'San Diego location closed. License expired — may reopen under new ownership.' },
     ],
     events: [
-      { id: c_id(), title: 'Strategy kickoff — BrightPath', date: d(0), time: '10:00', type: 'meeting', clientName: 'James Kim', notes: '' },
-      { id: c_id(), title: 'Follow up — Atlas Retail', date: d(1), time: '14:00', type: 'followup', clientName: 'David Chen', notes: 'Send proposal draft' },
-      { id: c_id(), title: 'Weekly sync — Meridian', date: d(2), time: '09:30', type: 'call', clientName: 'Sarah Robinson', notes: '' },
-      { id: c_id(), title: 'Proposal deadline — Greenline', date: d(3), time: '17:00', type: 'deadline', clientName: 'Emily Parker', notes: '' },
-      { id: c_id(), title: 'Demo — FinEdge model v2', date: d(4), time: '11:00', type: 'meeting', clientName: 'Maria Lopez', notes: '' },
-      { id: c_id(), title: 'Quarterly review prep', date: d(5), time: '13:00', type: 'meeting', clientName: '', notes: 'Internal' },
-      { id: c_id(), title: 'Check in — David Chen', date: d(7), time: '10:30', type: 'call', clientName: 'David Chen', notes: '' },
-      { id: c_id(), title: 'Contract renewal — Meridian', date: d(10), time: '15:00', type: 'deadline', clientName: 'Sarah Robinson', notes: '' },
+      { id: c_id(), title: 'POS analytics review — Emerald Leaf', date: d(0), time: '10:00', type: 'meeting', clientName: 'Marcus Green', notes: 'Review Q1 sales data and inventory turn rates' },
+      { id: c_id(), title: 'Compliance audit prep — High Sierra', date: d(1), time: '09:00', type: 'inspection', clientName: 'Jordan Rivera', notes: 'Ensure Metrc reports are up to date before state audit' },
+      { id: c_id(), title: 'Delivery route optimization demo — GreenWave', date: d(1), time: '14:00', type: 'meeting', clientName: 'Aisha Patel', notes: 'Present AI routing model results' },
+      { id: c_id(), title: 'Weekly inventory delivery — Pacific Roots', date: d(2), time: '08:00', type: 'delivery', clientName: 'Lisa Chang', notes: 'Oakland location restocking' },
+      { id: c_id(), title: 'License renewal deadline — High Sierra', date: d(3), time: '17:00', type: 'license', clientName: 'Jordan Rivera', notes: 'State license renewal — file before EOD' },
+      { id: c_id(), title: 'Follow up on proposal — Bloom Room', date: d(3), time: '11:00', type: 'followup', clientName: 'Natalie Woods', notes: 'Sent menu optimization proposal last week' },
+      { id: c_id(), title: 'Yield prediction model review — SunGrown', date: d(4), time: '13:00', type: 'call', clientName: 'Derek Morrison', notes: 'Discuss model accuracy on spring harvest predictions' },
+      { id: c_id(), title: 'Verde Labs intro call', date: d(5), time: '10:30', type: 'call', clientName: 'Carlos Mendez', notes: 'Initial discovery — manufacturing AI needs' },
+      { id: c_id(), title: 'Canna Coast supply chain workshop', date: d(7), time: '09:00', type: 'meeting', clientName: 'Tanya Brooks', notes: 'Full-day workshop mapping distribution workflows' },
+      { id: c_id(), title: 'State compliance inspection — Emerald Leaf', date: d(8), time: '10:00', type: 'inspection', clientName: 'Marcus Green', notes: 'BCC scheduled inspection — all 3 locations' },
+      { id: c_id(), title: 'Quarterly business review — Pacific Roots', date: d(10), time: '14:00', type: 'meeting', clientName: 'Lisa Chang', notes: 'QBR: review AI ROI metrics and plan next quarter' },
+      { id: c_id(), title: 'Delivery batch — GreenWave restock', date: d(12), time: '07:00', type: 'delivery', clientName: 'Aisha Patel', notes: 'Bi-weekly product restock delivery' },
     ],
     calYear: today.getFullYear(),
     calMonth: today.getMonth(),
@@ -593,8 +650,8 @@ searchBox.addEventListener('input', render);
 
 function render() {
   const v = state.currentView;
-  viewTitle.textContent = v === 'dashboard' ? 'Dashboard' : v === 'calendar' ? 'Calendar' : 'Clients';
-  addBtn.textContent = v === 'clients' ? '+ New Client' : '+ New Event';
+  viewTitle.textContent = v === 'dashboard' ? 'Dashboard' : v === 'calendar' ? 'Calendar' : 'Dispensaries';
+  addBtn.textContent = v === 'clients' ? '+ New Dispensary' : '+ New Event';
   if (v === 'dashboard') renderDashboard();
   else if (v === 'calendar') renderCalendar();
   else renderClients();
@@ -603,16 +660,25 @@ function render() {
 // ── Dashboard ──
 function renderDashboard() {
   const activeClients = state.clients.filter(c => c.status === 'active').length;
-  const totalValue = state.clients.reduce((s, c) => s + (c.value || 0), 0);
+  const totalLocations = state.clients.filter(c => c.status === 'active').reduce((s, c) => s + (c.locations || 1), 0);
+  const totalRevenue = state.clients.filter(c => c.status === 'active').reduce((s, c) => s + (c.value || 0), 0);
   const upcoming = [...state.events].sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time)).filter(e => e.date >= new Date().toISOString().slice(0, 10)).slice(0, 6);
+
+  // License alerts
+  const today = new Date().toISOString().slice(0, 10);
+  const soon = new Date();
+  soon.setDate(soon.getDate() + 90);
+  const soonStr = soon.toISOString().slice(0, 10);
+  const licenseAlerts = state.clients.filter(c => c.licenseExpiry && c.status !== 'inactive' && c.licenseExpiry <= soonStr).sort((a, b) => a.licenseExpiry.localeCompare(b.licenseExpiry));
+
   const pipeline = state.clients.filter(c => c.status !== 'inactive' && c.value > 0).sort((a, b) => b.value - a.value).slice(0, 5);
 
   content.innerHTML = `
     <div class="dash-cards">
-      <div class="dash-card"><div class="label">Total Clients</div><div class="value">${state.clients.length}</div></div>
-      <div class="dash-card"><div class="label">Active Clients</div><div class="value">${activeClients}</div></div>
+      <div class="dash-card"><div class="label">Active Clients</div><div class="value">${activeClients}</div><div class="change"><span class="up">${totalLocations} locations</span></div></div>
+      <div class="dash-card"><div class="label">Monthly Revenue</div><div class="value" style="color:#16a34a">$${(totalRevenue/1000).toFixed(0)}k</div></div>
       <div class="dash-card"><div class="label">Upcoming Events</div><div class="value">${upcoming.length}</div></div>
-      <div class="dash-card"><div class="label">Pipeline Value</div><div class="value">$${(totalValue/1000).toFixed(0)}k</div></div>
+      <div class="dash-card"><div class="label">License Alerts</div><div class="value" style="color:${licenseAlerts.length > 0 ? '#d97706' : '#16a34a'}">${licenseAlerts.length}</div><div class="change">${licenseAlerts.length > 0 ? '<span class="down">Expiring within 90 days</span>' : '<span class="up">All clear</span>'}</div></div>
     </div>
     <div class="dash-sections">
       <div class="dash-section">
@@ -626,13 +692,25 @@ function renderDashboard() {
         `).join('') || '<p style="color:#94a3b8;font-size:.9rem;">No upcoming events</p>'}
       </div>
       <div class="dash-section">
-        <h4>Pipeline</h4>
-        ${pipeline.map(c => `
-          <div class="pipeline-item" style="cursor:pointer" data-cid="${c.id}">
-            <div><div class="name">${esc(c.name)}</div><div class="stage">${esc(c.company)} &middot; <span class="status-badge status-${c.status}">${c.status}</span></div></div>
-            <div class="amount">$${c.value.toLocaleString()}</div>
-          </div>
-        `).join('') || '<p style="color:#94a3b8;font-size:.9rem;">No pipeline data</p>'}
+        <h4>License Renewals &amp; Pipeline</h4>
+        ${licenseAlerts.length > 0 ? licenseAlerts.map(c => {
+          const expired = c.licenseExpiry < today;
+          const cls = expired ? 'license-expired' : 'license-expiring';
+          const label = expired ? 'EXPIRED' : 'Expiring ' + formatDate(c.licenseExpiry);
+          return `<div class="pipeline-item" style="cursor:pointer" data-cid="${c.id}">
+            <div><div class="name">${esc(c.company)}</div><div class="stage">${esc(c.license || '—')}</div></div>
+            <span class="license-badge ${cls}">${label}</span>
+          </div>`;
+        }).join('') : ''}
+        <div style="margin-top:${licenseAlerts.length > 0 ? '16px;padding-top:12px;border-top:1px solid #eef5f0' : '0'}">
+          ${licenseAlerts.length > 0 ? '<h4 style="font-size:.9rem;margin-bottom:10px;">Top Accounts</h4>' : ''}
+          ${pipeline.map(c => `
+            <div class="pipeline-item" style="cursor:pointer" data-cid="${c.id}">
+              <div><div class="name">${esc(c.company)}</div><div class="stage">${esc(c.name)} &middot; <span class="status-badge status-${c.status}">${c.status}</span></div></div>
+              <div class="amount">$${c.value.toLocaleString()}/mo</div>
+            </div>
+          `).join('')}
+        </div>
       </div>
     </div>
   `;
@@ -645,7 +723,7 @@ function renderDashboard() {
 }
 
 function typeColor(t) {
-  return { meeting: '#2563eb', call: '#16a34a', deadline: '#dc2626', followup: '#d97706' }[t] || '#64748b';
+  return { meeting: '#16a34a', call: '#2563eb', deadline: '#dc2626', followup: '#d97706', delivery: '#4338ca', inspection: '#be185d', license: '#7c3aed' }[t] || '#64748b';
 }
 
 function formatDate(d) {
@@ -834,30 +912,42 @@ function renderWeekView(q) {
 function renderClients() {
   const q = searchBox.value.toLowerCase();
   const filtered = state.clients.filter(c =>
-    !q || c.name.toLowerCase().includes(q) || c.company.toLowerCase().includes(q) || c.email.toLowerCase().includes(q) || c.status.includes(q)
+    !q || c.name.toLowerCase().includes(q) || c.company.toLowerCase().includes(q) || c.email.toLowerCase().includes(q) || c.status.includes(q) || (c.storeType || '').toLowerCase().includes(q) || (c.license || '').toLowerCase().includes(q)
   );
-  const colors = ['#dbeafe', '#dcfce7', '#fef3c7', '#fee2e2', '#ede9fe', '#fce7f3'];
+  const colors = ['#dcfce7', '#dbeafe', '#fef3c7', '#fee2e2', '#f3e8ff', '#fce7f3', '#e0e7ff', '#ccfbf1', '#fef9c3'];
+  const today = new Date().toISOString().slice(0, 10);
+  const soon = new Date();
+  soon.setDate(soon.getDate() + 90);
+  const soonStr = soon.toISOString().slice(0, 10);
 
   content.innerHTML = `
     <table class="client-table">
       <thead><tr>
-        <th>Client</th><th>Company</th><th>Email</th><th>Status</th><th>Value</th><th></th>
+        <th>Contact</th><th>Dispensary</th><th>Type</th><th>License</th><th>Status</th><th>Revenue</th><th></th>
       </tr></thead>
       <tbody>
-        ${filtered.map((c, i) => `
+        ${filtered.map((c, i) => {
+          let licCls = 'license-valid', licLabel = 'Valid';
+          if (c.licenseExpiry) {
+            if (c.licenseExpiry < today) { licCls = 'license-expired'; licLabel = 'Expired'; }
+            else if (c.licenseExpiry <= soonStr) { licCls = 'license-expiring'; licLabel = 'Exp ' + formatDate(c.licenseExpiry); }
+          }
+          const typeLabels = { dispensary: 'Dispensary', delivery: 'Delivery', cultivation: 'Cultivation', manufacturing: 'Mfg', distribution: 'Distro', microbusiness: 'Micro' };
+          return `
           <tr>
             <td>
-              <span class="client-avatar" style="background:${colors[i % colors.length]};color:${typeColor('meeting')}">${initials(c.name)}</span>
+              <span class="client-avatar" style="background:${colors[i % colors.length]};color:#15803d">${initials(c.name)}</span>
               ${esc(c.name)}
             </td>
-            <td>${esc(c.company)}</td>
-            <td>${esc(c.email)}</td>
+            <td>${esc(c.company)}${c.locations > 1 ? ` <span style="color:#64748b;font-size:.75rem;">(${c.locations} loc)</span>` : ''}</td>
+            <td><span style="font-size:.8rem;color:#475569;">${typeLabels[c.storeType] || c.storeType || '—'}</span></td>
+            <td><span class="license-badge ${licCls}">${licLabel}</span><br><span style="font-size:.7rem;color:#94a3b8;">${esc(c.license || '—')}</span></td>
             <td><span class="status-badge status-${c.status}">${c.status}</span></td>
-            <td style="font-weight:600">${c.value ? '$' + c.value.toLocaleString() : '—'}</td>
+            <td style="font-weight:600">${c.value ? '$' + c.value.toLocaleString() + '/mo' : '—'}</td>
             <td><button class="btn btn-secondary btn-sm" data-cid="${c.id}">Edit</button></td>
-          </tr>
-        `).join('')}
-        ${filtered.length === 0 ? '<tr><td colspan="6" style="text-align:center;color:#94a3b8;padding:40px;">No clients found</td></tr>' : ''}
+          </tr>`;
+        }).join('')}
+        ${filtered.length === 0 ? '<tr><td colspan="7" style="text-align:center;color:#94a3b8;padding:40px;">No dispensaries found</td></tr>' : ''}
       </tbody>
     </table>
   `;
@@ -880,9 +970,8 @@ function openEventModal(id, prefillDate, prefillTime) {
   document.getElementById('eventId').value = '';
   delBtn.style.display = 'none';
 
-  // populate client dropdown
   const sel = document.getElementById('eventClient');
-  sel.innerHTML = '<option value="">— None —</option>' + state.clients.map(c => `<option value="${esc(c.name)}">${esc(c.name)} (${esc(c.company)})</option>`).join('');
+  sel.innerHTML = '<option value="">— None —</option>' + state.clients.map(c => `<option value="${esc(c.name)}">${esc(c.name)} — ${esc(c.company)}</option>`).join('');
 
   if (id) {
     const ev = state.events.find(e => e.id === id);
@@ -943,7 +1032,7 @@ function openClientModal(id) {
   const modal = document.getElementById('clientModal');
   const form = document.getElementById('clientForm');
   const delBtn = document.getElementById('deleteClientBtn');
-  document.getElementById('clientModalTitle').textContent = id ? 'Edit Client' : 'New Client';
+  document.getElementById('clientModalTitle').textContent = id ? 'Edit Dispensary' : 'New Dispensary';
   form.reset();
   document.getElementById('clientId').value = '';
   delBtn.style.display = 'none';
@@ -958,6 +1047,10 @@ function openClientModal(id) {
       document.getElementById('clientPhone').value = cl.phone || '';
       document.getElementById('clientStatus').value = cl.status;
       document.getElementById('clientValue').value = cl.value || '';
+      document.getElementById('clientLicense').value = cl.license || '';
+      document.getElementById('clientLicenseExpiry').value = cl.licenseExpiry || '';
+      document.getElementById('clientStoreType').value = cl.storeType || 'dispensary';
+      document.getElementById('clientLocations').value = cl.locations || 1;
       document.getElementById('clientNotes').value = cl.notes || '';
       delBtn.style.display = '';
     }
@@ -975,6 +1068,10 @@ document.getElementById('clientForm').addEventListener('submit', (e) => {
     phone: document.getElementById('clientPhone').value,
     status: document.getElementById('clientStatus').value,
     value: Number(document.getElementById('clientValue').value) || 0,
+    license: document.getElementById('clientLicense').value,
+    licenseExpiry: document.getElementById('clientLicenseExpiry').value,
+    storeType: document.getElementById('clientStoreType').value,
+    locations: Number(document.getElementById('clientLocations').value) || 1,
     notes: document.getElementById('clientNotes').value,
   };
   if (id) {
@@ -1019,7 +1116,6 @@ function esc(s) {
 }
 
 // ── Init ──
-// Restore active nav
 navBtns.forEach(b => {
   b.classList.toggle('active', b.dataset.view === state.currentView);
 });
