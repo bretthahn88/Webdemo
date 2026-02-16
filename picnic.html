@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farmer John's County Picnic — February 17, 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Nunito', sans-serif;
+      color: #3b2f1e;
+      background: #fffdf7;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── Nav ── */
+    nav {
+      background: #2d6a1e;
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,.15);
+    }
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .nav-brand span { color: #fde047; }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a { color: #d9f2d0; font-weight: 600; font-size: .95rem; transition: color .2s; }
+    .nav-links a:hover { color: #fde047; }
+    .hamburger {
+      display: none; background: none; border: none; cursor: pointer;
+      flex-direction: column; gap: 5px;
+    }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, #4ade80 0%, #22c55e 40%, #16a34a 100%);
+      text-align: center;
+      padding: 80px 0 60px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0; right: 0;
+      height: 60px;
+      background: #fffdf7;
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+    .hero-emoji { font-size: 4rem; margin-bottom: 16px; }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .hero h1 span { color: #fde047; }
+    .hero .date-badge {
+      display: inline-block;
+      background: rgba(255,255,255,.2);
+      backdrop-filter: blur(8px);
+      padding: 10px 28px;
+      border-radius: 50px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      border: 2px solid rgba(255,255,255,.3);
+    }
+    .hero p {
+      font-size: 1.15rem;
+      max-width: 560px;
+      margin: 0 auto 28px;
+      opacity: .95;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 36px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.15); }
+    .btn-primary { background: #fde047; color: #3b2f1e; }
+    .btn-outline { background: transparent; color: #fff; border: 2px solid #fff; margin-left: 12px; }
+    .btn-outline:hover { background: #fff; color: #2d6a1e; }
+
+    /* ── Section helpers ── */
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: #2d6a1e;
+    }
+    .section-sub {
+      text-align: center;
+      color: #6b5e4d;
+      max-width: 520px;
+      margin: 0 auto 40px;
+      font-size: 1.05rem;
+    }
+
+    /* ── Details ── */
+    .details { padding: 80px 0; }
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .detail-card {
+      background: #fff;
+      border: 2px solid #e8e0d0;
+      border-radius: 16px;
+      padding: 28px 20px;
+      text-align: center;
+      transition: transform .2s;
+    }
+    .detail-card:hover { transform: translateY(-4px); }
+    .detail-icon { font-size: 2.4rem; margin-bottom: 12px; }
+    .detail-card h3 { font-size: 1.1rem; font-weight: 700; color: #2d6a1e; margin-bottom: 6px; }
+    .detail-card p { color: #6b5e4d; font-size: .95rem; }
+
+    /* ── Activities ── */
+    .activities { padding: 80px 0; background: #f0fbe8; }
+    .activities-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .activity {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid #d4e8c7;
+    }
+    .activity-icon { font-size: 2rem; flex-shrink: 0; }
+    .activity h3 { font-size: 1.05rem; font-weight: 700; color: #2d6a1e; }
+    .activity p { color: #6b5e4d; font-size: .9rem; margin-top: 2px; }
+
+    /* ── Menu ── */
+    .menu { padding: 80px 0; }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .menu-card {
+      background: #fff;
+      border: 2px solid #e8e0d0;
+      border-radius: 16px;
+      padding: 28px 20px;
+      text-align: center;
+    }
+    .menu-card .icon { font-size: 2.2rem; margin-bottom: 10px; }
+    .menu-card h3 { font-weight: 700; color: #2d6a1e; margin-bottom: 8px; }
+    .menu-card ul { list-style: none; color: #6b5e4d; font-size: .95rem; }
+    .menu-card li { padding: 3px 0; }
+
+    /* ── RSVP ── */
+    .rsvp { padding: 80px 0; background: #f0fbe8; }
+    .rsvp-box {
+      max-width: 520px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      padding: 36px;
+      border: 2px solid #d4e8c7;
+    }
+    .rsvp-box form { display: flex; flex-direction: column; gap: 14px; }
+    .rsvp-box input,
+    .rsvp-box select,
+    .rsvp-box textarea {
+      padding: 12px 16px;
+      border: 2px solid #e8e0d0;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color .2s;
+      width: 100%;
+    }
+    .rsvp-box input:focus,
+    .rsvp-box select:focus,
+    .rsvp-box textarea:focus { border-color: #2d6a1e; }
+    .rsvp-box textarea { resize: vertical; min-height: 80px; }
+
+    /* ── Map / Directions ── */
+    .directions { padding: 80px 0; }
+    .directions-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .map-placeholder {
+      background: #e8e0d0;
+      border-radius: 16px;
+      min-height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+    .directions-info h3 { font-size: 1.3rem; font-weight: 700; color: #2d6a1e; margin-bottom: 12px; }
+    .directions-info p { color: #6b5e4d; margin-bottom: 12px; }
+    .directions-info .tip {
+      background: #fef9c3;
+      border-left: 4px solid #facc15;
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      font-size: .9rem;
+      color: #6b5e4d;
+      margin-top: 16px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: #2d6a1e;
+      color: #d9f2d0;
+      padding: 32px 0;
+      text-align: center;
+    }
+    footer .brand { font-weight: 800; font-size: 1.2rem; color: #fff; margin-bottom: 8px; }
+    footer .brand span { color: #fde047; }
+    footer p { font-size: .9rem; }
+    footer a { color: #fde047; }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 56px; left: 0; right: 0;
+        background: #2d6a1e;
+        padding: 20px;
+        gap: 16px;
+        box-shadow: 0 8px 20px rgba(0,0,0,.15);
+      }
+      .hero h1 { font-size: 2rem; }
+      .details-grid { grid-template-columns: 1fr; }
+      .activities-grid { grid-template-columns: 1fr; }
+      .menu-grid { grid-template-columns: 1fr; }
+      .directions-content { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <div class="container">
+      <div class="nav-brand">Farmer <span>John's</span> Picnic</div>
+      <div class="nav-links" id="navLinks">
+        <a href="#details">Details</a>
+        <a href="#activities">Activities</a>
+        <a href="#menu">Menu</a>
+        <a href="#rsvp">RSVP</a>
+        <a href="#directions">Directions</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-emoji">&#x1F33B;</div>
+      <div class="date-badge">&#x1F4C5; Tuesday, February 17, 2026</div>
+      <h1>Farmer John's<br><span>County Picnic</span></h1>
+      <p>Grab the family and join us for a day of good food, live music, games, and country fun at Farmer John's farm!</p>
+      <div>
+        <a href="#rsvp" class="btn btn-primary">RSVP Now</a>
+        <a href="#details" class="btn btn-outline">See Details</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Details -->
+  <section class="details" id="details">
+    <div class="container">
+      <h2 class="section-title">Event Details</h2>
+      <p class="section-sub">Everything you need to know about the big day.</p>
+      <div class="details-grid">
+        <div class="detail-card">
+          <div class="detail-icon">&#x1F4C5;</div>
+          <h3>Date</h3>
+          <p>Tuesday, February 17, 2026</p>
+        </div>
+        <div class="detail-card">
+          <div class="detail-icon">&#x1F552;</div>
+          <h3>Time</h3>
+          <p>11:00 AM &ndash; 5:00 PM</p>
+        </div>
+        <div class="detail-card">
+          <div class="detail-icon">&#x1F4CD;</div>
+          <h3>Location</h3>
+          <p>Farmer John's Farm<br>1234 Country Rd, Greenfield</p>
+        </div>
+        <div class="detail-card">
+          <div class="detail-icon">&#x1F3AB;</div>
+          <h3>Admission</h3>
+          <p>Free for all ages!<br>The whole county is invited.</p>
+        </div>
+        <div class="detail-card">
+          <div class="detail-icon">&#x1F697;</div>
+          <h3>Parking</h3>
+          <p>Free parking in the north pasture. Follow the signs.</p>
+        </div>
+        <div class="detail-card">
+          <div class="detail-icon">&#x1F43E;</div>
+          <h3>Pet Friendly</h3>
+          <p>Leashed pets are welcome! Water bowls provided.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Activities -->
+  <section class="activities" id="activities">
+    <div class="container">
+      <h2 class="section-title">Fun for Everyone</h2>
+      <p class="section-sub">A packed day of activities for kids and adults alike.</p>
+      <div class="activities-grid">
+        <div class="activity">
+          <div class="activity-icon">&#x1F3B6;</div>
+          <div>
+            <h3>Live Bluegrass Music</h3>
+            <p>The County Creek Band plays all afternoon on the main stage.</p>
+          </div>
+        </div>
+        <div class="activity">
+          <div class="activity-icon">&#x1F3A0;</div>
+          <div>
+            <h3>Kids' Zone</h3>
+            <p>Pony rides, face painting, sack races, and a petting zoo.</p>
+          </div>
+        </div>
+        <div class="activity">
+          <div class="activity-icon">&#x1F3AF;</div>
+          <div>
+            <h3>Horseshoe Tournament</h3>
+            <p>Sign up at the barn — trophies for first, second, and third!</p>
+          </div>
+        </div>
+        <div class="activity">
+          <div class="activity-icon">&#x1F33D;</div>
+          <div>
+            <h3>Corn Maze</h3>
+            <p>Navigate Farmer John's famous five-acre corn maze.</p>
+          </div>
+        </div>
+        <div class="activity">
+          <div class="activity-icon">&#x1F3A8;</div>
+          <div>
+            <h3>Craft Fair</h3>
+            <p>Local artisans selling handmade goods and fresh produce.</p>
+          </div>
+        </div>
+        <div class="activity">
+          <div class="activity-icon">&#x1F382;</div>
+          <div>
+            <h3>Pie Baking Contest</h3>
+            <p>Enter your best pie by 1 PM. Judging at 3 PM — bragging rights guaranteed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu -->
+  <section class="menu" id="menu">
+    <div class="container">
+      <h2 class="section-title">What's Cookin'</h2>
+      <p class="section-sub">Farm-fresh food straight from the grill and garden.</p>
+      <div class="menu-grid">
+        <div class="menu-card">
+          <div class="icon">&#x1F356;</div>
+          <h3>From the Grill</h3>
+          <ul>
+            <li>Smoked BBQ Ribs</li>
+            <li>Grilled Burgers</li>
+            <li>Hot Dogs</li>
+            <li>Grilled Corn on the Cob</li>
+          </ul>
+        </div>
+        <div class="menu-card">
+          <div class="icon">&#x1F957;</div>
+          <h3>Sides &amp; Salads</h3>
+          <ul>
+            <li>Coleslaw</li>
+            <li>Potato Salad</li>
+            <li>Baked Beans</li>
+            <li>Fresh Garden Salad</li>
+          </ul>
+        </div>
+        <div class="menu-card">
+          <div class="icon">&#x1F370;</div>
+          <h3>Sweets &amp; Drinks</h3>
+          <ul>
+            <li>Homemade Apple Pie</li>
+            <li>Lemon Bars</li>
+            <li>Fresh Lemonade</li>
+            <li>Sweet Tea</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section class="rsvp" id="rsvp">
+    <div class="container">
+      <h2 class="section-title">RSVP</h2>
+      <p class="section-sub">Let us know you're coming so we can set an extra plate!</p>
+      <div class="rsvp-box">
+        <form onsubmit="event.preventDefault(); alert('See you at the picnic! 🌻'); this.reset();">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <select name="guests" required>
+            <option value="" disabled selected>Number of Guests</option>
+            <option value="1">Just me</option>
+            <option value="2">2 people</option>
+            <option value="3">3 people</option>
+            <option value="4">4 people</option>
+            <option value="5+">5 or more</option>
+          </select>
+          <textarea name="notes" placeholder="Any dietary needs or notes? (optional)"></textarea>
+          <button type="submit" class="btn btn-primary" style="width:100%; border:none; font-family:inherit;">Count Me In!</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Directions -->
+  <section class="directions" id="directions">
+    <div class="container">
+      <h2 class="section-title">How to Get There</h2>
+      <p class="section-sub">We're easy to find — just follow the sunflowers!</p>
+      <div class="directions-content">
+        <div class="map-placeholder">&#x1F5FA;&#xFE0F;</div>
+        <div class="directions-info">
+          <h3>Farmer John's Farm</h3>
+          <p>1234 Country Road<br>Greenfield, CA 93927</p>
+          <p>From Highway 101, take the Greenfield exit and head west on Country Road for 3 miles. Look for the big red barn and the sunflower-lined driveway on your left.</p>
+          <div class="tip">
+            <strong>Tip:</strong> Wear boots or sturdy shoes — the pasture can be muddy this time of year!
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="brand">Farmer <span>John's</span> County Picnic</div>
+      <p>Questions? Call Farmer John at <strong>(555) 867-5309</strong> or email <a href="mailto:john@farmerjohn.com">john@farmerjohn.com</a></p>
+      <p style="margin-top:12px; font-size:.85rem; opacity:.7;">&copy; 2026 Farmer John's Farm. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('hamburger').addEventListener('click', function() {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+    document.querySelectorAll('.nav-links a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.getElementById('navLinks').classList.remove('open');
+      });
+    });
+  </script>
+</body>
+</html>
