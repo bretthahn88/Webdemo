@@ -1,1 +1,538 @@
-brett's first website
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NovaMind AI — AI Implementation Advisor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1e293b;
+      background: #fff;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { max-width: 100%; }
+
+    /* ── Utility ── */
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      transition: background .2s, transform .15s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: #2563eb; color: #fff; }
+    .btn-primary:hover { background: #1d4ed8; }
+    .btn-outline { background: transparent; color: #2563eb; border: 2px solid #2563eb; }
+    .btn-outline:hover { background: #2563eb; color: #fff; }
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .section-subtitle {
+      text-align: center;
+      color: #64748b;
+      max-width: 600px;
+      margin: 0 auto 48px;
+      font-size: 1.1rem;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #2563eb;
+    }
+    .logo span { color: #1e293b; }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a { font-size: .95rem; font-weight: 500; color: #475569; transition: color .2s; }
+    .nav-links a:hover { color: #2563eb; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #1e293b; border-radius: 2px; transition: .3s; }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 160px 0 100px;
+      background: linear-gradient(135deg, #eff6ff 0%, #f8fafc 50%, #eef2ff 100%);
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: #0f172a;
+    }
+    .hero h1 span { color: #2563eb; }
+    .hero p {
+      font-size: 1.2rem;
+      color: #475569;
+      max-width: 620px;
+      margin: 0 auto 36px;
+    }
+    .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── Services ── */
+    .services { padding: 100px 0; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .service-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: box-shadow .25s, transform .25s;
+    }
+    .service-card:hover { box-shadow: 0 12px 32px rgba(0,0,0,.08); transform: translateY(-4px); }
+    .service-icon {
+      width: 56px; height: 56px;
+      background: #dbeafe;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 1.6rem;
+    }
+    .service-card h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 10px; }
+    .service-card p { color: #64748b; font-size: .95rem; }
+
+    /* ── About ── */
+    .about { padding: 100px 0; background: #f8fafc; }
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .about-text h2 { font-size: 2rem; font-weight: 700; margin-bottom: 16px; }
+    .about-text p { color: #475569; margin-bottom: 16px; }
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .stat { text-align: center; }
+    .stat .number { font-size: 2rem; font-weight: 700; color: #2563eb; }
+    .stat .label { font-size: .85rem; color: #64748b; margin-top: 4px; }
+
+    /* ── How It Works ── */
+    .how-it-works { padding: 100px 0; }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      position: relative;
+    }
+    .step { text-align: center; position: relative; }
+    .step-number {
+      width: 56px; height: 56px;
+      background: #2563eb;
+      color: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin: 0 auto 20px;
+    }
+    .step h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 10px; }
+    .step p { color: #64748b; font-size: .95rem; max-width: 300px; margin: 0 auto; }
+    .step-connector {
+      display: none;
+    }
+
+    /* ── Testimonials ── */
+    .testimonials { padding: 100px 0; background: #f8fafc; }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .testimonial-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 32px;
+    }
+    .testimonial-card .quote {
+      font-size: 1rem;
+      color: #475569;
+      font-style: italic;
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+    .testimonial-card .quote::before { content: "\201C"; font-size: 1.4rem; color: #2563eb; }
+    .testimonial-card .quote::after { content: "\201D"; font-size: 1.4rem; color: #2563eb; }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; }
+    .author-avatar {
+      width: 44px; height: 44px;
+      background: #dbeafe;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700;
+      color: #2563eb;
+      font-size: .9rem;
+    }
+    .author-info .name { font-weight: 600; font-size: .95rem; }
+    .author-info .role { color: #94a3b8; font-size: .85rem; }
+
+    /* ── Contact ── */
+    .contact { padding: 100px 0; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+    }
+    .contact-info h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 16px; }
+    .contact-info p { color: #475569; margin-bottom: 24px; }
+    .contact-detail { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; color: #475569; }
+    .contact-detail .icon {
+      width: 40px; height: 40px;
+      background: #dbeafe;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .contact-form { display: flex; flex-direction: column; gap: 16px; }
+    .contact-form input,
+    .contact-form textarea {
+      padding: 14px 16px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color .2s;
+      width: 100%;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus { border-color: #2563eb; }
+    .contact-form textarea { resize: vertical; min-height: 130px; }
+
+    /* ── Footer ── */
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 48px 0 24px;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      flex-wrap: wrap;
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+    .footer-brand .logo { color: #60a5fa; font-size: 1.3rem; }
+    .footer-brand .logo span { color: #fff; }
+    .footer-brand p { margin-top: 8px; font-size: .9rem; max-width: 280px; }
+    .footer-links h4 { color: #fff; font-size: .95rem; margin-bottom: 12px; }
+    .footer-links a { display: block; font-size: .9rem; margin-bottom: 8px; transition: color .2s; }
+    .footer-links a:hover { color: #60a5fa; }
+    .footer-bottom {
+      border-top: 1px solid #1e293b;
+      padding-top: 24px;
+      text-align: center;
+      font-size: .85rem;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px; left: 0; right: 0;
+        background: #fff;
+        padding: 24px;
+        gap: 20px;
+        border-bottom: 1px solid #e2e8f0;
+        box-shadow: 0 8px 24px rgba(0,0,0,.08);
+      }
+      .hero h1 { font-size: 2.2rem; }
+      .hero p { font-size: 1.05rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .about-content { grid-template-columns: 1fr; gap: 32px; }
+      .steps { grid-template-columns: 1fr; gap: 32px; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .footer-top { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <div class="container">
+      <div class="logo">Nova<span>Mind</span></div>
+      <div class="nav-links" id="navLinks">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#how-it-works">Process</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="btn btn-primary" style="padding:10px 24px;">Get Started</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Transform Your Business<br>with <span>AI Implementation</span></h1>
+      <p>We help forward-thinking companies integrate artificial intelligence into their operations — boosting efficiency, cutting costs, and unlocking new growth.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-primary">Book a Consultation</a>
+        <a href="#services" class="btn btn-outline">Explore Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services" id="services">
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-subtitle">End-to-end AI advisory — from strategy to deployment — tailored to your industry and goals.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">&#x1F9ED;</div>
+          <h3>AI Strategy</h3>
+          <p>Roadmaps that align AI investments with your business objectives and competitive landscape.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">&#x2699;&#xFE0F;</div>
+          <h3>Process Automation</h3>
+          <p>Identify and automate repetitive workflows to free your team for higher-value work.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">&#x1F4CA;</div>
+          <h3>Data Analytics</h3>
+          <p>Turn raw data into actionable insights with modern analytics pipelines and dashboards.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">&#x1F916;</div>
+          <h3>Custom AI Solutions</h3>
+          <p>Bespoke machine-learning models and AI applications built for your specific use cases.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text">
+          <h2>Why NovaMind?</h2>
+          <p>Founded by a team of AI researchers and enterprise consultants, NovaMind bridges the gap between cutting-edge technology and real business value. We don't just recommend — we partner with you to deliver measurable outcomes.</p>
+          <p>Our mission is simple: make AI accessible, practical, and profitable for organizations of every size.</p>
+          <div class="about-stats">
+            <div class="stat">
+              <div class="number">120+</div>
+              <div class="label">Projects Delivered</div>
+            </div>
+            <div class="stat">
+              <div class="number">40+</div>
+              <div class="label">Enterprise Clients</div>
+            </div>
+            <div class="stat">
+              <div class="number">98%</div>
+              <div class="label">Client Satisfaction</div>
+            </div>
+          </div>
+        </div>
+        <div class="about-visual" style="background:#dbeafe;border-radius:16px;min-height:320px;display:flex;align-items:center;justify-content:center;">
+          <div style="text-align:center;color:#2563eb;">
+            <div style="font-size:4rem;">&#x1F4A1;</div>
+            <p style="font-weight:600;margin-top:8px;">Innovation Meets Execution</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-subtitle">A proven three-step process that takes you from concept to production.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Assess</h3>
+          <p>We audit your current operations, data infrastructure, and strategic goals to find the highest-impact AI opportunities.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Design</h3>
+          <p>Our team architects a tailored solution — selecting the right models, tools, and integrations for your environment.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Implement</h3>
+          <p>We build, test, and deploy alongside your team, ensuring knowledge transfer and long-term success.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <h2 class="section-title">What Our Clients Say</h2>
+      <p class="section-subtitle">Trusted by teams across industries to deliver AI solutions that work.</p>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="quote">NovaMind helped us cut manual processing time by 60%. Their team understood our domain from day one and delivered ahead of schedule.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">SR</div>
+            <div class="author-info">
+              <div class="name">Sarah Robinson</div>
+              <div class="role">VP of Operations, Meridian Logistics</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="quote">The AI strategy roadmap alone was worth every penny. We now have a clear three-year plan that our entire leadership team has bought into.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">JK</div>
+            <div class="author-info">
+              <div class="name">James Kim</div>
+              <div class="role">CTO, BrightPath Health</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="quote">From proof-of-concept to production in eight weeks — NovaMind's process is incredibly efficient. Our forecasting accuracy improved by 35%.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">ML</div>
+            <div class="author-info">
+              <div class="name">Maria Lopez</div>
+              <div class="role">Director of Analytics, FinEdge Capital</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="section-subtitle">Ready to explore what AI can do for your business? Let's talk.</p>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Contact Information</h3>
+          <p>Reach out and we'll respond within one business day.</p>
+          <div class="contact-detail">
+            <div class="icon">&#x2709;&#xFE0F;</div>
+            <span>hello@novamind.ai</span>
+          </div>
+          <div class="contact-detail">
+            <div class="icon">&#x1F4DE;</div>
+            <span>(555) 234-5678</span>
+          </div>
+          <div class="contact-detail">
+            <div class="icon">&#x1F4CD;</div>
+            <span>350 Innovation Blvd, San Francisco, CA 94105</span>
+          </div>
+        </div>
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you! We\'ll be in touch soon.'); this.reset();">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <textarea name="message" placeholder="Tell us about your project..." required></textarea>
+          <button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">Nova<span>Mind</span></div>
+          <p>AI implementation advisory for forward-thinking businesses.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#how-it-works">Process</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-links">
+          <h4>Services</h4>
+          <a href="#services">AI Strategy</a>
+          <a href="#services">Process Automation</a>
+          <a href="#services">Data Analytics</a>
+          <a href="#services">Custom Solutions</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 NovaMind AI. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('hamburger').addEventListener('click', function() {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+    document.querySelectorAll('.nav-links a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.getElementById('navLinks').classList.remove('open');
+      });
+    });
+  </script>
+</body>
+</html>
