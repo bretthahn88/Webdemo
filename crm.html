@@ -391,14 +391,91 @@
     .form-row .form-group { flex: 1; }
     .modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; }
 
+    /* ── Marketing ── */
+    .mkt-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-bottom: 24px; }
+    .mkt-stat { background:#fff; border:1px solid #d4e8d9; border-radius:12px; padding:18px; }
+    .mkt-stat .label { font-size:.78rem; color:#64748b; font-weight:500; }
+    .mkt-stat .value { font-size:1.6rem; font-weight:700; margin-top:2px; }
+
+    .campaign-table { width:100%; background:#fff; border-radius:12px; border:1px solid #d4e8d9; border-collapse:separate; border-spacing:0; overflow:hidden; }
+    .campaign-table th { text-align:left; padding:12px 16px; font-size:.75rem; font-weight:600; color:#64748b; text-transform:uppercase; background:#f0faf2; border-bottom:1px solid #d4e8d9; }
+    .campaign-table td { padding:14px 16px; font-size:.88rem; border-bottom:1px solid #eef5f0; vertical-align:middle; }
+    .campaign-table tr:last-child td { border-bottom:none; }
+    .campaign-table tr:hover td { background:#f0faf2; }
+
+    .camp-status { padding:4px 10px; border-radius:20px; font-size:.73rem; font-weight:600; }
+    .camp-status-draft { background:#f1f5f9; color:#64748b; }
+    .camp-status-sent { background:#dcfce7; color:#16a34a; }
+    .camp-status-scheduled { background:#dbeafe; color:#2563eb; }
+
+    /* Composer */
+    .composer { background:#fff; border:1px solid #d4e8d9; border-radius:12px; overflow:hidden; }
+    .composer-steps { display:flex; border-bottom:1px solid #d4e8d9; background:#f0faf2; }
+    .composer-step { flex:1; padding:14px 12px; text-align:center; font-size:.8rem; font-weight:600; color:#94a3b8; cursor:default; position:relative; }
+    .composer-step.active { color:#16a34a; background:#fff; }
+    .composer-step.done { color:#15803d; }
+    .composer-step .step-num { display:inline-flex; align-items:center; justify-content:center; width:24px; height:24px; border-radius:50%; background:#e2e8f0; color:#64748b; font-size:.75rem; font-weight:700; margin-right:6px; }
+    .composer-step.active .step-num { background:#16a34a; color:#fff; }
+    .composer-step.done .step-num { background:#dcfce7; color:#16a34a; }
+    .composer-body { padding:28px; min-height:400px; }
+    .composer-footer { display:flex; justify-content:space-between; padding:16px 28px; border-top:1px solid #d4e8d9; background:#f9fafb; }
+
+    /* Audience checkboxes */
+    .audience-list { max-height:320px; overflow-y:auto; border:1px solid #d4e8d9; border-radius:8px; }
+    .audience-item { display:flex; align-items:center; gap:12px; padding:10px 14px; border-bottom:1px solid #eef5f0; }
+    .audience-item:last-child { border-bottom:none; }
+    .audience-item:hover { background:#f0faf2; }
+    .audience-item input[type="checkbox"] { width:18px; height:18px; accent-color:#16a34a; }
+    .audience-filter { display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap; }
+    .audience-filter button { padding:6px 14px; border-radius:20px; border:1px solid #d4e8d9; background:#fff; font-family:inherit; font-size:.78rem; font-weight:600; color:#475569; cursor:pointer; transition:.15s; }
+    .audience-filter button.active { background:#16a34a; color:#fff; border-color:#16a34a; }
+
+    /* Template cards */
+    .template-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+    .template-card { border:2px solid #d4e8d9; border-radius:12px; padding:20px; cursor:pointer; transition:.15s; }
+    .template-card:hover { border-color:#16a34a; background:#f0faf2; }
+    .template-card.selected { border-color:#16a34a; background:#dcfce7; }
+    .template-card h5 { font-size:.95rem; font-weight:700; margin-bottom:4px; }
+    .template-card p { font-size:.8rem; color:#64748b; }
+
+    /* Editor */
+    .editor-split { display:grid; grid-template-columns:1fr 1fr; gap:20px; min-height:400px; }
+    .editor-area { border:1px solid #d4e8d9; border-radius:8px; padding:16px; font-family:inherit; font-size:.88rem; line-height:1.6; min-height:380px; outline:none; overflow-y:auto; }
+    .editor-area:focus { border-color:#16a34a; }
+    .preview-frame { border:1px solid #d4e8d9; border-radius:8px; overflow:hidden; background:#f9fafb; }
+    .preview-frame iframe { width:100%; height:100%; border:none; min-height:380px; }
+    .editor-toolbar { display:flex; gap:6px; margin-bottom:10px; flex-wrap:wrap; }
+    .editor-toolbar button { padding:5px 10px; border:1px solid #d4e8d9; border-radius:6px; background:#fff; font-family:inherit; font-size:.78rem; cursor:pointer; transition:.15s; }
+    .editor-toolbar button:hover { background:#f0faf2; border-color:#16a34a; }
+
+    /* Review */
+    .review-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    .review-details { display:flex; flex-direction:column; gap:14px; }
+    .review-field { background:#f9fafb; border:1px solid #eef5f0; border-radius:8px; padding:14px; }
+    .review-field .label { font-size:.75rem; font-weight:600; color:#64748b; text-transform:uppercase; margin-bottom:4px; }
+    .review-field .val { font-size:.9rem; color:#1e293b; }
+    .review-preview { border:1px solid #d4e8d9; border-radius:8px; overflow:hidden; }
+    .review-preview iframe { width:100%; border:none; min-height:500px; }
+
+    /* Toast */
+    .toast { position:fixed; bottom:24px; right:24px; background:#14201a; color:#fff; padding:14px 24px; border-radius:10px; font-size:.9rem; font-weight:600; z-index:999; box-shadow:0 8px 30px rgba(0,0,0,.25); display:flex; align-items:center; gap:10px; animation:toastIn .3s ease; }
+    .toast.success { border-left:4px solid #22c55e; }
+    .toast.error { border-left:4px solid #ef4444; }
+    @keyframes toastIn { from { transform:translateY(20px); opacity:0; } to { transform:translateY(0); opacity:1; } }
+
     /* ── Responsive ── */
     @media (max-width: 1024px) {
       .dash-cards { grid-template-columns: repeat(2, 1fr); }
       .dash-sections { grid-template-columns: 1fr; }
+      .mkt-stats { grid-template-columns: repeat(2,1fr); }
+      .template-grid { grid-template-columns: 1fr; }
+      .editor-split { grid-template-columns: 1fr; }
+      .review-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 768px) {
       .sidebar { display: none; }
       .dash-cards { grid-template-columns: 1fr; }
+      .mkt-stats { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -414,6 +491,7 @@
       <button class="active" data-view="dashboard"><span class="icon">&#x1F4CA;</span> Dashboard</button>
       <button data-view="calendar"><span class="icon">&#x1F4C5;</span> Calendar</button>
       <button data-view="clients"><span class="icon">&#x1F33F;</span> Dispensaries</button>
+      <button data-view="marketing"><span class="icon">&#x1F4E7;</span> Marketing</button>
     </nav>
     <div class="sidebar-footer">&copy; 2026 NovaMind AI</div>
   </aside>
@@ -611,6 +689,12 @@ function defaultState() {
     calMonth: today.getMonth(),
     calView: 'month',
     currentView: 'dashboard',
+    campaigns: [
+      { id: c_id(), name: 'New Strain Drop: Blue Dream Haze', subject: 'Just Dropped: Blue Dream Haze — Limited Supply', previewText: 'Be the first to stock the hottest new hybrid strain', templateId: 'strain-drop', html: '', recipients: [], status: 'sent', sentAt: d(-5), scheduledFor: null, stats: { sent: 8, opened: 6, clicked: 3 } },
+      { id: c_id(), name: 'Weekly Deals — Feb 10-16', subject: 'This Week\'s Hottest Deals Inside', previewText: '20% off select edibles + BOGO pre-rolls', templateId: 'weekly-deals', html: '', recipients: [], status: 'sent', sentAt: d(-3), scheduledFor: null, stats: { sent: 7, opened: 5, clicked: 2 } },
+      { id: c_id(), name: 'Valentine\'s Day Flash Sale', subject: 'FLASH SALE: 30% Off All Vape Cartridges — Today Only', previewText: 'Show your customers some love with these deals', templateId: 'flash-sale', html: '', recipients: [], status: 'scheduled', sentAt: null, scheduledFor: d(1), stats: { sent: 0, opened: 0, clicked: 0 } },
+      { id: c_id(), name: 'New Menu Highlight: Edibles Collection', subject: 'Check Out Our Premium Edibles Lineup', previewText: 'Curated selection of artisan edibles now available', templateId: 'menu-highlight', html: '', recipients: [], status: 'draft', sentAt: null, scheduledFor: null, stats: { sent: 0, opened: 0, clicked: 0 } },
+    ],
   };
 }
 
@@ -643,6 +727,7 @@ navBtns.forEach(btn => {
 
 addBtn.addEventListener('click', () => {
   if (state.currentView === 'clients') openClientModal();
+  else if (state.currentView === 'marketing') openCampaignComposer();
   else openEventModal();
 });
 
@@ -650,10 +735,13 @@ searchBox.addEventListener('input', render);
 
 function render() {
   const v = state.currentView;
-  viewTitle.textContent = v === 'dashboard' ? 'Dashboard' : v === 'calendar' ? 'Calendar' : 'Dispensaries';
-  addBtn.textContent = v === 'clients' ? '+ New Dispensary' : '+ New Event';
+  const titles = { dashboard:'Dashboard', calendar:'Calendar', clients:'Dispensaries', marketing:'Marketing' };
+  viewTitle.textContent = titles[v] || 'Dashboard';
+  const btnLabels = { clients:'+ New Dispensary', marketing:'+ New Campaign', dashboard:'+ New Event', calendar:'+ New Event' };
+  addBtn.textContent = btnLabels[v] || '+ New Event';
   if (v === 'dashboard') renderDashboard();
   else if (v === 'calendar') renderCalendar();
+  else if (v === 'marketing') renderMarketing();
   else renderClients();
 }
 
@@ -1107,6 +1195,601 @@ document.getElementById('cancelClientBtn').addEventListener('click', () => {
     if (e.target === e.currentTarget) e.currentTarget.classList.remove('open');
   });
 });
+
+// Ensure campaigns array exists on legacy state
+if (!state.campaigns) { state.campaigns = defaultState().campaigns; saveState(); }
+
+// ── Email Templates ──
+const EMAIL_TEMPLATES = [
+  {
+    id: 'strain-drop',
+    name: 'New Strain Drop',
+    desc: 'Announce a hot new strain arrival to your dispensary partners',
+    html: `<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body style="margin:0;padding:0;background:#f1f5f4;font-family:Arial,Helvetica,sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f1f5f4;padding:40px 0;">
+<tr><td align="center">
+<table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:12px;overflow:hidden;">
+  <tr><td style="background:linear-gradient(135deg,#14201a,#1e3328);padding:40px 40px 30px;text-align:center;">
+    <h1 style="color:#22c55e;margin:0;font-size:28px;">NovaMind</h1>
+    <p style="color:#94a3b8;margin:8px 0 0;font-size:14px;">Cannabis Retail Partner Update</p>
+  </td></tr>
+  <tr><td style="padding:40px;">
+    <div style="background:#f0fdf4;border-left:4px solid #22c55e;padding:16px 20px;border-radius:0 8px 8px 0;margin-bottom:24px;">
+      <p style="margin:0;color:#15803d;font-weight:bold;font-size:13px;text-transform:uppercase;letter-spacing:1px;">NEW STRAIN ALERT</p>
+    </div>
+    <h2 style="color:#1e293b;margin:0 0 12px;font-size:24px;">Blue Dream Haze</h2>
+    <p style="color:#64748b;font-size:15px;line-height:1.6;margin:0 0 20px;">A premium sativa-dominant hybrid with 28% THC. Notes of sweet berry and earthy pine. This strain is flying off shelves — limited allocation available for wholesale partners.</p>
+    <table cellpadding="0" cellspacing="0" style="margin-bottom:24px;width:100%;">
+      <tr>
+        <td style="background:#f9fafb;padding:12px 16px;border-radius:8px 0 0 8px;border:1px solid #e2e8f0;"><span style="font-size:12px;color:#64748b;">THC</span><br><strong style="color:#1e293b;">28%</strong></td>
+        <td style="background:#f9fafb;padding:12px 16px;border:1px solid #e2e8f0;border-left:none;"><span style="font-size:12px;color:#64748b;">Type</span><br><strong style="color:#1e293b;">Sativa Hybrid</strong></td>
+        <td style="background:#f9fafb;padding:12px 16px;border:1px solid #e2e8f0;border-left:none;"><span style="font-size:12px;color:#64748b;">Wholesale</span><br><strong style="color:#16a34a;">$2,400/lb</strong></td>
+        <td style="background:#f9fafb;padding:12px 16px;border-radius:0 8px 8px 0;border:1px solid #e2e8f0;border-left:none;"><span style="font-size:12px;color:#64748b;">MOQ</span><br><strong style="color:#1e293b;">1 lb</strong></td>
+      </tr>
+    </table>
+    <table cellpadding="0" cellspacing="0"><tr><td style="background:#16a34a;border-radius:8px;padding:14px 32px;text-align:center;">
+      <a href="#" style="color:#ffffff;text-decoration:none;font-weight:bold;font-size:15px;">Reserve Your Allocation</a>
+    </td></tr></table>
+  </td></tr>
+  <tr><td style="background:#f9fafb;padding:24px 40px;text-align:center;border-top:1px solid #e2e8f0;">
+    <p style="color:#94a3b8;font-size:12px;margin:0;">NovaMind Cannabis Retail CRM &bull; <a href="#" style="color:#16a34a;">Unsubscribe</a></p>
+  </td></tr>
+</table>
+</td></tr></table></body></html>`
+  },
+  {
+    id: 'weekly-deals',
+    name: 'Weekly Deals',
+    desc: 'Highlight this week\'s best deals for your dispensary partners',
+    html: `<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body style="margin:0;padding:0;background:#f1f5f4;font-family:Arial,Helvetica,sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f1f5f4;padding:40px 0;">
+<tr><td align="center">
+<table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:12px;overflow:hidden;">
+  <tr><td style="background:linear-gradient(135deg,#14201a,#1e3328);padding:40px 40px 30px;text-align:center;">
+    <h1 style="color:#22c55e;margin:0;font-size:28px;">NovaMind</h1>
+    <p style="color:#94a3b8;margin:8px 0 0;font-size:14px;">Weekly Wholesale Deals</p>
+  </td></tr>
+  <tr><td style="padding:40px;">
+    <h2 style="color:#1e293b;margin:0 0 8px;font-size:22px;">This Week's Hottest Deals</h2>
+    <p style="color:#64748b;font-size:14px;margin:0 0 28px;">Exclusive pricing for NovaMind retail partners — valid through Sunday.</p>
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:16px;">
+      <tr><td style="background:#f0fdf4;padding:16px 20px;border-radius:8px;border:1px solid #dcfce7;">
+        <table width="100%"><tr>
+          <td><strong style="color:#1e293b;font-size:16px;">OG Kush Pre-Rolls (10pk)</strong><br><span style="color:#64748b;font-size:13px;">Premium hand-rolled, 1g each</span></td>
+          <td align="right"><span style="color:#dc2626;font-size:13px;text-decoration:line-through;">$85</span><br><strong style="color:#16a34a;font-size:20px;">$68</strong><span style="color:#64748b;font-size:12px;">/unit</span></td>
+        </tr></table>
+      </td></tr>
+    </table>
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:16px;">
+      <tr><td style="background:#f0fdf4;padding:16px 20px;border-radius:8px;border:1px solid #dcfce7;">
+        <table width="100%"><tr>
+          <td><strong style="color:#1e293b;font-size:16px;">Gummy Bears 100mg (Assorted)</strong><br><span style="color:#64748b;font-size:13px;">Best-selling edible, 10x10mg</span></td>
+          <td align="right"><span style="color:#dc2626;font-size:13px;text-decoration:line-through;">$24</span><br><strong style="color:#16a34a;font-size:20px;">$18</strong><span style="color:#64748b;font-size:12px;">/unit</span></td>
+        </tr></table>
+      </td></tr>
+    </table>
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:28px;">
+      <tr><td style="background:#f0fdf4;padding:16px 20px;border-radius:8px;border:1px solid #dcfce7;">
+        <table width="100%"><tr>
+          <td><strong style="color:#1e293b;font-size:16px;">Live Resin Cartridge 1g</strong><br><span style="color:#64748b;font-size:13px;">Gelato strain, 92% THC</span></td>
+          <td align="right"><span style="color:#dc2626;font-size:13px;text-decoration:line-through;">$32</span><br><strong style="color:#16a34a;font-size:20px;">$25</strong><span style="color:#64748b;font-size:12px;">/unit</span></td>
+        </tr></table>
+      </td></tr>
+    </table>
+    <table cellpadding="0" cellspacing="0" width="100%"><tr><td align="center"><table><tr><td style="background:#16a34a;border-radius:8px;padding:14px 32px;">
+      <a href="#" style="color:#ffffff;text-decoration:none;font-weight:bold;font-size:15px;">Place Wholesale Order</a>
+    </td></tr></table></td></tr></table>
+  </td></tr>
+  <tr><td style="background:#f9fafb;padding:24px 40px;text-align:center;border-top:1px solid #e2e8f0;">
+    <p style="color:#94a3b8;font-size:12px;margin:0;">NovaMind Cannabis Retail CRM &bull; <a href="#" style="color:#16a34a;">Unsubscribe</a></p>
+  </td></tr>
+</table>
+</td></tr></table></body></html>`
+  },
+  {
+    id: 'flash-sale',
+    name: 'Flash Sale',
+    desc: 'Urgent limited-time offer to drive immediate wholesale orders',
+    html: `<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body style="margin:0;padding:0;background:#f1f5f4;font-family:Arial,Helvetica,sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f1f5f4;padding:40px 0;">
+<tr><td align="center">
+<table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:12px;overflow:hidden;">
+  <tr><td style="background:linear-gradient(135deg,#7c2d12,#dc2626);padding:40px;text-align:center;">
+    <p style="color:#fecaca;margin:0 0 8px;font-size:14px;font-weight:bold;text-transform:uppercase;letter-spacing:2px;">Flash Sale — Today Only</p>
+    <h1 style="color:#ffffff;margin:0;font-size:42px;">30% OFF</h1>
+    <p style="color:#fecaca;margin:8px 0 0;font-size:16px;">All Vape Cartridges</p>
+  </td></tr>
+  <tr><td style="padding:40px;">
+    <h2 style="color:#1e293b;margin:0 0 12px;font-size:20px;text-align:center;">Limited Time Wholesale Pricing</h2>
+    <p style="color:#64748b;font-size:14px;line-height:1.6;text-align:center;margin:0 0 28px;">Pass these savings to your customers or boost your margins — either way, stock up now before midnight.</p>
+    <table width="100%" cellpadding="0" cellspacing="0" style="background:#fef2f2;border:2px dashed #fca5a5;border-radius:8px;padding:20px;margin-bottom:24px;">
+      <tr><td align="center">
+        <p style="margin:0;font-size:13px;color:#dc2626;font-weight:bold;text-transform:uppercase;">Use Code</p>
+        <p style="margin:6px 0 0;font-size:28px;font-weight:bold;color:#dc2626;letter-spacing:4px;">FLASH30</p>
+      </td></tr>
+    </table>
+    <table cellpadding="0" cellspacing="0" width="100%"><tr><td align="center"><table><tr><td style="background:#dc2626;border-radius:8px;padding:14px 40px;">
+      <a href="#" style="color:#ffffff;text-decoration:none;font-weight:bold;font-size:15px;">Shop the Sale Now</a>
+    </td></tr></table></td></tr></table>
+  </td></tr>
+  <tr><td style="background:#f9fafb;padding:24px 40px;text-align:center;border-top:1px solid #e2e8f0;">
+    <p style="color:#94a3b8;font-size:12px;margin:0;">NovaMind Cannabis Retail CRM &bull; <a href="#" style="color:#16a34a;">Unsubscribe</a></p>
+  </td></tr>
+</table>
+</td></tr></table></body></html>`
+  },
+  {
+    id: 'menu-highlight',
+    name: 'Menu Highlight',
+    desc: 'Showcase curated products from your catalog',
+    html: `<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body style="margin:0;padding:0;background:#f1f5f4;font-family:Arial,Helvetica,sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f1f5f4;padding:40px 0;">
+<tr><td align="center">
+<table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:12px;overflow:hidden;">
+  <tr><td style="background:linear-gradient(135deg,#14201a,#1e3328);padding:40px 40px 30px;text-align:center;">
+    <h1 style="color:#22c55e;margin:0;font-size:28px;">NovaMind</h1>
+    <p style="color:#94a3b8;margin:8px 0 0;font-size:14px;">Menu Highlights</p>
+  </td></tr>
+  <tr><td style="padding:40px;">
+    <h2 style="color:#1e293b;margin:0 0 8px;font-size:22px;">Curated Collection: Premium Edibles</h2>
+    <p style="color:#64748b;font-size:14px;margin:0 0 28px;line-height:1.6;">Hand-selected products trending across our top-performing dispensary partners this month.</p>
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:12px;">
+      <tr>
+        <td width="48%" style="background:#f9fafb;padding:20px;border-radius:8px;border:1px solid #e2e8f0;vertical-align:top;">
+          <div style="width:100%;height:100px;background:#f0fdf4;border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;text-align:center;line-height:100px;font-size:32px;">&#127851;</div>
+          <strong style="color:#1e293b;font-size:14px;">Artisan Chocolate Truffles</strong><br>
+          <span style="color:#64748b;font-size:12px;">50mg THC &bull; 10-pack</span><br>
+          <strong style="color:#16a34a;font-size:16px;margin-top:4px;display:inline-block;">$32/unit</strong>
+        </td>
+        <td width="4%"></td>
+        <td width="48%" style="background:#f9fafb;padding:20px;border-radius:8px;border:1px solid #e2e8f0;vertical-align:top;">
+          <div style="width:100%;height:100px;background:#f0fdf4;border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;text-align:center;line-height:100px;font-size:32px;">&#127855;</div>
+          <strong style="color:#1e293b;font-size:14px;">Tropical Gummy Rings</strong><br>
+          <span style="color:#64748b;font-size:12px;">100mg THC &bull; 20-pack</span><br>
+          <strong style="color:#16a34a;font-size:16px;margin-top:4px;display:inline-block;">$22/unit</strong>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:28px;">
+      <tr>
+        <td width="48%" style="background:#f9fafb;padding:20px;border-radius:8px;border:1px solid #e2e8f0;vertical-align:top;">
+          <div style="width:100%;height:100px;background:#f0fdf4;border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;text-align:center;line-height:100px;font-size:32px;">&#9749;</div>
+          <strong style="color:#1e293b;font-size:14px;">CBD Infused Coffee Pods</strong><br>
+          <span style="color:#64748b;font-size:12px;">25mg CBD &bull; 12-pack</span><br>
+          <strong style="color:#16a34a;font-size:16px;margin-top:4px;display:inline-block;">$28/unit</strong>
+        </td>
+        <td width="4%"></td>
+        <td width="48%" style="background:#f9fafb;padding:20px;border-radius:8px;border:1px solid #e2e8f0;vertical-align:top;">
+          <div style="width:100%;height:100px;background:#f0fdf4;border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;text-align:center;line-height:100px;font-size:32px;">&#127852;</div>
+          <strong style="color:#1e293b;font-size:14px;">Honey Lavender Drops</strong><br>
+          <span style="color:#64748b;font-size:12px;">75mg THC &bull; 30ml</span><br>
+          <strong style="color:#16a34a;font-size:16px;margin-top:4px;display:inline-block;">$18/unit</strong>
+        </td>
+      </tr>
+    </table>
+    <table cellpadding="0" cellspacing="0" width="100%"><tr><td align="center"><table><tr><td style="background:#16a34a;border-radius:8px;padding:14px 32px;">
+      <a href="#" style="color:#ffffff;text-decoration:none;font-weight:bold;font-size:15px;">View Full Menu</a>
+    </td></tr></table></td></tr></table>
+  </td></tr>
+  <tr><td style="background:#f9fafb;padding:24px 40px;text-align:center;border-top:1px solid #e2e8f0;">
+    <p style="color:#94a3b8;font-size:12px;margin:0;">NovaMind Cannabis Retail CRM &bull; <a href="#" style="color:#16a34a;">Unsubscribe</a></p>
+  </td></tr>
+</table>
+</td></tr></table></body></html>`
+  }
+];
+
+// ── Marketing View ──
+function renderMarketing() {
+  const campaigns = state.campaigns || [];
+  const sent = campaigns.filter(c => c.status === 'sent');
+  const totalSent = sent.reduce((s, c) => s + (c.stats?.sent || 0), 0);
+  const totalOpened = sent.reduce((s, c) => s + (c.stats?.opened || 0), 0);
+  const totalClicked = sent.reduce((s, c) => s + (c.stats?.clicked || 0), 0);
+  const openRate = totalSent > 0 ? Math.round((totalOpened / totalSent) * 100) : 0;
+  const clickRate = totalSent > 0 ? Math.round((totalClicked / totalSent) * 100) : 0;
+
+  content.innerHTML = `
+    <div class="mkt-stats">
+      <div class="mkt-stat"><div class="label">Total Campaigns</div><div class="value">${campaigns.length}</div></div>
+      <div class="mkt-stat"><div class="label">Emails Sent</div><div class="value" style="color:#16a34a">${totalSent}</div></div>
+      <div class="mkt-stat"><div class="label">Avg Open Rate</div><div class="value">${openRate}%</div></div>
+      <div class="mkt-stat"><div class="label">Avg Click Rate</div><div class="value">${clickRate}%</div></div>
+    </div>
+    <table class="campaign-table">
+      <thead><tr>
+        <th>Campaign</th><th>Status</th><th>Recipients</th><th>Date</th><th>Open Rate</th><th></th>
+      </tr></thead>
+      <tbody>
+        ${campaigns.map(c => {
+          const cOpenRate = c.stats?.sent > 0 ? Math.round((c.stats.opened / c.stats.sent) * 100) + '%' : '—';
+          const dateStr = c.sentAt ? formatDate(c.sentAt) : c.scheduledFor ? formatDate(c.scheduledFor) : '—';
+          return `<tr>
+            <td><strong>${esc(c.name)}</strong><br><span style="font-size:.78rem;color:#64748b;">${esc(c.subject)}</span></td>
+            <td><span class="camp-status camp-status-${c.status}">${c.status.charAt(0).toUpperCase() + c.status.slice(1)}</span></td>
+            <td>${c.stats?.sent || c.recipients?.length || 0}</td>
+            <td>${dateStr}</td>
+            <td>${cOpenRate}</td>
+            <td><button class="btn btn-secondary btn-sm" data-camp-edit="${c.id}">View</button></td>
+          </tr>`;
+        }).join('')}
+        ${campaigns.length === 0 ? '<tr><td colspan="6" style="text-align:center;color:#94a3b8;padding:40px;">No campaigns yet. Click "+ New Campaign" to get started.</td></tr>' : ''}
+      </tbody>
+    </table>
+  `;
+
+  content.querySelectorAll('[data-camp-edit]').forEach(btn => {
+    btn.addEventListener('click', () => openCampaignComposer(btn.dataset.campEdit));
+  });
+}
+
+// ── Campaign Composer ──
+let composerState = null;
+
+function openCampaignComposer(existingId) {
+  if (existingId) {
+    const camp = (state.campaigns || []).find(c => c.id === existingId);
+    if (camp) {
+      composerState = {
+        step: 0,
+        id: camp.id,
+        name: camp.name,
+        subject: camp.subject,
+        previewText: camp.previewText || '',
+        templateId: camp.templateId || '',
+        html: camp.html || '',
+        recipients: camp.recipients || [],
+        status: camp.status,
+        isEdit: true,
+      };
+    } else return;
+  } else {
+    composerState = {
+      step: 0,
+      id: null,
+      name: '',
+      subject: '',
+      previewText: '',
+      templateId: '',
+      html: '',
+      recipients: [],
+      status: 'draft',
+      isEdit: false,
+    };
+  }
+  renderComposer();
+}
+
+function renderComposer() {
+  const cs = composerState;
+  const steps = ['Details', 'Audience', 'Template', 'Edit', 'Review & Send'];
+
+  const stepHeaders = steps.map((s, i) => {
+    const cls = i === cs.step ? 'active' : i < cs.step ? 'done' : '';
+    return `<div class="composer-step ${cls}"><span class="step-num">${i < cs.step ? '&#10003;' : i + 1}</span>${s}</div>`;
+  }).join('');
+
+  let body = '';
+
+  if (cs.step === 0) {
+    body = `
+      <h3 style="margin-bottom:20px;">Campaign Details</h3>
+      <div class="form-group"><label>Campaign Name</label><input type="text" id="campName" value="${esc(cs.name)}" placeholder="e.g. New Strain Drop: Blue Dream"></div>
+      <div class="form-group"><label>Subject Line</label><input type="text" id="campSubject" value="${esc(cs.subject)}" placeholder="e.g. Just Dropped: Blue Dream Haze"></div>
+      <div class="form-group"><label>Preview Text</label><input type="text" id="campPreview" value="${esc(cs.previewText)}" placeholder="Short preview shown in inbox"></div>
+    `;
+  } else if (cs.step === 1) {
+    const clients = state.clients || [];
+    const statuses = ['all', 'active', 'lead', 'prospect'];
+    body = `
+      <h3 style="margin-bottom:20px;">Select Audience</h3>
+      <div class="audience-filter">
+        ${statuses.map(s => `<button class="${s === 'all' ? 'active' : ''}" data-aud-filter="${s}">${s === 'all' ? 'All Active' : s.charAt(0).toUpperCase() + s.slice(1)}</button>`).join('')}
+      </div>
+      <div style="margin-bottom:12px;">
+        <label style="display:flex;align-items:center;gap:8px;font-size:.85rem;font-weight:600;cursor:pointer;">
+          <input type="checkbox" id="selectAllAud" style="width:18px;height:18px;accent-color:#16a34a;"> Select All
+        </label>
+      </div>
+      <div class="audience-list" id="audienceList">
+        ${clients.filter(c => c.status !== 'inactive').map(c => `
+          <div class="audience-item" data-aud-status="${c.status}">
+            <input type="checkbox" value="${c.id}" class="aud-check" ${cs.recipients.includes(c.id) ? 'checked' : ''}>
+            <div>
+              <strong>${esc(c.name)}</strong> <span style="color:#64748b;font-size:.8rem;">— ${esc(c.company)}</span>
+              <br><span style="font-size:.78rem;color:#94a3b8;">${esc(c.email)} &bull; <span class="status-badge status-${c.status}" style="font-size:.7rem;">${c.status}</span></span>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+      <p style="margin-top:10px;font-size:.82rem;color:#64748b;"><strong id="audCount">${cs.recipients.length}</strong> recipients selected</p>
+    `;
+  } else if (cs.step === 2) {
+    body = `
+      <h3 style="margin-bottom:20px;">Choose a Template</h3>
+      <div class="template-grid">
+        ${EMAIL_TEMPLATES.map(t => `
+          <div class="template-card ${cs.templateId === t.id ? 'selected' : ''}" data-tpl="${t.id}">
+            <h5>${esc(t.name)}</h5>
+            <p>${esc(t.desc)}</p>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  } else if (cs.step === 3) {
+    body = `
+      <h3 style="margin-bottom:12px;">Edit Email Content</h3>
+      <div class="editor-toolbar">
+        <button onclick="document.execCommand('bold')"><b>B</b></button>
+        <button onclick="document.execCommand('italic')"><i>I</i></button>
+        <button onclick="document.execCommand('underline')"><u>U</u></button>
+        <button onclick="document.execCommand('insertUnorderedList')">List</button>
+        <button onclick="document.execCommand('createLink',false,prompt('URL:'))">Link</button>
+      </div>
+      <div class="editor-split">
+        <div class="editor-area" contenteditable="true" id="emailEditor">${cs.html}</div>
+        <div class="preview-frame"><iframe id="emailPreview"></iframe></div>
+      </div>
+    `;
+  } else if (cs.step === 4) {
+    const tpl = EMAIL_TEMPLATES.find(t => t.id === cs.templateId);
+    const recipientNames = (state.clients || []).filter(c => cs.recipients.includes(c.id)).map(c => `${c.name} (${c.email})`);
+    const isSent = cs.status === 'sent';
+    body = `
+      <h3 style="margin-bottom:20px;">Review & Send</h3>
+      <div class="review-grid">
+        <div class="review-details">
+          <div class="review-field"><div class="label">Campaign Name</div><div class="val">${esc(cs.name)}</div></div>
+          <div class="review-field"><div class="label">Subject Line</div><div class="val">${esc(cs.subject)}</div></div>
+          <div class="review-field"><div class="label">Preview Text</div><div class="val">${esc(cs.previewText) || '<em style="color:#94a3b8">None</em>'}</div></div>
+          <div class="review-field"><div class="label">Template</div><div class="val">${tpl ? esc(tpl.name) : 'Custom'}</div></div>
+          <div class="review-field"><div class="label">Recipients (${recipientNames.length})</div><div class="val">${recipientNames.length > 0 ? recipientNames.map(n => esc(n)).join('<br>') : '<em style="color:#94a3b8">None selected</em>'}</div></div>
+          ${isSent ? '<div class="review-field"><div class="label">Status</div><div class="val"><span class="camp-status camp-status-sent">Sent</span></div></div>' : ''}
+        </div>
+        <div class="review-preview"><iframe id="reviewPreview"></iframe></div>
+      </div>
+    `;
+  }
+
+  const canGoBack = cs.step > 0;
+  const canGoNext = cs.step < 4;
+  const isFinalStep = cs.step === 4;
+  const isSent = cs.status === 'sent';
+
+  content.innerHTML = `
+    <div class="composer">
+      <div class="composer-steps">${stepHeaders}</div>
+      <div class="composer-body">${body}</div>
+      <div class="composer-footer">
+        <div>
+          <button class="btn btn-secondary" id="compBack" ${!canGoBack ? 'style="visibility:hidden"' : ''}>Back</button>
+          <button class="btn btn-secondary" id="compCancel" style="margin-left:8px;">Cancel</button>
+        </div>
+        <div style="display:flex;gap:8px;">
+          ${isFinalStep && !isSent ? `
+            <button class="btn btn-secondary" id="compDraft">Save Draft</button>
+            <button class="btn btn-secondary" id="compSchedule">Schedule</button>
+            <button class="btn btn-primary" id="compSend">Send Now</button>
+          ` : canGoNext ? `<button class="btn btn-primary" id="compNext">Next</button>` : `<button class="btn btn-secondary" id="compDone">Done</button>`}
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Wire up composer events
+  document.getElementById('compCancel')?.addEventListener('click', () => { composerState = null; renderMarketing(); });
+  document.getElementById('compBack')?.addEventListener('click', () => { saveComposerStep(); cs.step--; renderComposer(); });
+  document.getElementById('compNext')?.addEventListener('click', () => { saveComposerStep(); cs.step++; renderComposer(); });
+  document.getElementById('compDone')?.addEventListener('click', () => { composerState = null; renderMarketing(); });
+  document.getElementById('compDraft')?.addEventListener('click', () => { saveComposerStep(); saveCampaign('draft'); });
+  document.getElementById('compSchedule')?.addEventListener('click', () => { saveComposerStep(); saveCampaign('scheduled'); });
+  document.getElementById('compSend')?.addEventListener('click', () => { saveComposerStep(); sendCampaign(); });
+
+  // Step-specific wiring
+  if (cs.step === 1) {
+    wireAudienceStep();
+  } else if (cs.step === 2) {
+    content.querySelectorAll('.template-card').forEach(card => {
+      card.addEventListener('click', () => {
+        content.querySelectorAll('.template-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        cs.templateId = card.dataset.tpl;
+        const tpl = EMAIL_TEMPLATES.find(t => t.id === cs.templateId);
+        if (tpl) cs.html = tpl.html;
+      });
+    });
+  } else if (cs.step === 3) {
+    const editor = document.getElementById('emailEditor');
+    const preview = document.getElementById('emailPreview');
+    if (editor && preview) {
+      const updatePreview = () => {
+        const doc = preview.contentDocument || preview.contentWindow.document;
+        doc.open();
+        doc.write(editor.innerHTML);
+        doc.close();
+      };
+      editor.addEventListener('input', updatePreview);
+      setTimeout(updatePreview, 50);
+    }
+  } else if (cs.step === 4) {
+    const preview = document.getElementById('reviewPreview');
+    if (preview) {
+      setTimeout(() => {
+        const doc = preview.contentDocument || preview.contentWindow.document;
+        doc.open();
+        doc.write(cs.html);
+        doc.close();
+      }, 50);
+    }
+  }
+}
+
+function wireAudienceStep() {
+  const cs = composerState;
+  const checks = document.querySelectorAll('.aud-check');
+  const selectAll = document.getElementById('selectAllAud');
+  const countEl = document.getElementById('audCount');
+
+  const updateCount = () => {
+    cs.recipients = Array.from(document.querySelectorAll('.aud-check:checked')).map(cb => cb.value);
+    if (countEl) countEl.textContent = cs.recipients.length;
+  };
+
+  checks.forEach(cb => cb.addEventListener('change', () => {
+    updateCount();
+    if (selectAll) selectAll.checked = cs.recipients.length === checks.length;
+  }));
+
+  if (selectAll) {
+    selectAll.checked = cs.recipients.length === checks.length;
+    selectAll.addEventListener('change', () => {
+      const visible = document.querySelectorAll('.audience-item:not([style*="display: none"]) .aud-check');
+      visible.forEach(cb => { cb.checked = selectAll.checked; });
+      updateCount();
+    });
+  }
+
+  document.querySelectorAll('[data-aud-filter]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[data-aud-filter]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.audFilter;
+      document.querySelectorAll('.audience-item').forEach(item => {
+        if (filter === 'all') { item.style.display = ''; }
+        else { item.style.display = item.dataset.audStatus === filter ? '' : 'none'; }
+      });
+    });
+  });
+}
+
+function saveComposerStep() {
+  const cs = composerState;
+  if (cs.step === 0) {
+    cs.name = document.getElementById('campName')?.value || cs.name;
+    cs.subject = document.getElementById('campSubject')?.value || cs.subject;
+    cs.previewText = document.getElementById('campPreview')?.value || cs.previewText;
+  } else if (cs.step === 1) {
+    cs.recipients = Array.from(document.querySelectorAll('.aud-check:checked')).map(cb => cb.value);
+  } else if (cs.step === 3) {
+    const editor = document.getElementById('emailEditor');
+    if (editor) cs.html = editor.innerHTML;
+  }
+}
+
+function saveCampaign(status) {
+  const cs = composerState;
+  if (!state.campaigns) state.campaigns = [];
+
+  const campData = {
+    name: cs.name,
+    subject: cs.subject,
+    previewText: cs.previewText,
+    templateId: cs.templateId,
+    html: cs.html,
+    recipients: cs.recipients,
+    status: status,
+    sentAt: status === 'sent' ? new Date().toISOString().slice(0, 10) : null,
+    scheduledFor: status === 'scheduled' ? new Date(Date.now() + 86400000).toISOString().slice(0, 10) : null,
+    stats: { sent: 0, opened: 0, clicked: 0 },
+  };
+
+  if (cs.id) {
+    const existing = state.campaigns.find(c => c.id === cs.id);
+    if (existing) Object.assign(existing, campData);
+  } else {
+    campData.id = c_id();
+    state.campaigns.push(campData);
+  }
+  saveState();
+  composerState = null;
+  showToast(`Campaign ${status === 'draft' ? 'saved as draft' : 'scheduled'}!`, 'success');
+  renderMarketing();
+}
+
+// ── Mock Send Engine ──
+function sendEmail({ to, subject, html, from }) {
+  // Mock implementation — swap with SendGrid API call
+  // e.g. sgMail.send({ to, from, subject, html });
+  console.log('%c[NovaMind Email Engine] Sending email...', 'color:#22c55e;font-weight:bold;');
+  console.log('  To:', to);
+  console.log('  From:', from || 'noreply@novamind.ai');
+  console.log('  Subject:', subject);
+  console.log('  HTML length:', html.length, 'chars');
+  return { success: true, messageId: 'mock_' + c_id() };
+}
+
+function sendCampaign() {
+  const cs = composerState;
+  if (!cs.recipients.length) {
+    showToast('Please select at least one recipient.', 'error');
+    return;
+  }
+  if (!cs.subject) {
+    showToast('Please enter a subject line.', 'error');
+    return;
+  }
+
+  const recipients = (state.clients || []).filter(c => cs.recipients.includes(c.id));
+
+  console.log('%c[NovaMind Campaign Send]', 'color:#22c55e;font-weight:bold;font-size:14px;');
+  console.log('Campaign:', cs.name);
+  console.log('Recipients:', recipients.length);
+  console.log('---');
+
+  const results = recipients.map(r => {
+    return sendEmail({
+      to: r.email,
+      subject: cs.subject,
+      html: cs.html,
+      from: 'noreply@novamind.ai',
+    });
+  });
+
+  const mockOpened = Math.floor(recipients.length * (0.5 + Math.random() * 0.3));
+  const mockClicked = Math.floor(mockOpened * (0.3 + Math.random() * 0.3));
+
+  if (!state.campaigns) state.campaigns = [];
+  const campData = {
+    name: cs.name,
+    subject: cs.subject,
+    previewText: cs.previewText,
+    templateId: cs.templateId,
+    html: cs.html,
+    recipients: cs.recipients,
+    status: 'sent',
+    sentAt: new Date().toISOString().slice(0, 10),
+    scheduledFor: null,
+    stats: { sent: recipients.length, opened: mockOpened, clicked: mockClicked },
+  };
+
+  if (cs.id) {
+    const existing = state.campaigns.find(c => c.id === cs.id);
+    if (existing) Object.assign(existing, campData);
+  } else {
+    campData.id = c_id();
+    state.campaigns.push(campData);
+  }
+
+  saveState();
+  composerState = null;
+
+  console.log('%c[NovaMind] Campaign sent successfully!', 'color:#22c55e;font-weight:bold;');
+  console.log('Total sent:', recipients.length);
+  console.log('Message IDs:', results.map(r => r.messageId));
+
+  showToast(`Campaign sent to ${recipients.length} recipient${recipients.length !== 1 ? 's' : ''}!`, 'success');
+  renderMarketing();
+}
+
+function showToast(message, type) {
+  const existing = document.querySelector('.toast');
+  if (existing) existing.remove();
+  const toast = document.createElement('div');
+  toast.className = `toast ${type || 'success'}`;
+  toast.innerHTML = `<span>${type === 'success' ? '&#10003;' : '&#9888;'}</span> ${esc(message)}`;
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), 4000);
+}
 
 // ── Helpers ──
 function esc(s) {
